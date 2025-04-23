@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --cor-principal: #f6f6f6;
+    --cor-secundaria: #3ddb7c;
+    --cor-destaque: #90EE90;
+  }
+
+  body {
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: black;
+  }
+
+  h1,h2,h5 {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+  }
+
+  footer a {
+    color: var(--cor-primaria);
+  }
+
+  footer a:hover {
+    color: var(--cor-destaque);
+  }
+
+  .botao-personalizado {
+    background-color: #1E90FF; 
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .botao-personalizado:hover {
+    background-color: #90EE90;
+    transform: scale(1.05);
+  }
+  
+  .botao-personalizado:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .lead {
+    color: #f6f6f6;
+  }
+  .modal {
+    background-color: black;
+  }
+  .card {
+    background-color: #1c1c1c; 
+    color: #f6f6f6; 
+    border: 1px solid #333; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  }
+  
+  .card .card-title {
+    color: var(--cor-secundaria); 
+  }
+  
+  .card .card-text {
+    color: #f6f6f6; 
+  }
+  
+  .card .btn {
+    background-color: #3ddb7c; 
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .card .btn:hover {
+    background-color: var(--cor-destaque);
+    transform: scale(1.05);
+  }
+  
+  .card .btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .badge-html {
+    font-size: 1.5rem; 
+    background-color: #e34f26; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 12px; 
+  }
+  
+  .badge-css {
+    font-size: 1.5rem; 
+    background-color: #264de4; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 12px; 
+  }
+  
+  .badge-scratch {
+    font-size: 1.5rem; 
+    background-color: #ff8c1a; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 12px; 
+  }
