@@ -112,3 +112,8 @@
     padding: 10px 15px; 
     border-radius: 12px; 
   }
+
+.card-img-top {
+  height: 200px; /* Altura padrão para todas as imagens */
+  object-fit: cover; /* Mantém proporção e cobre o espaço */
+}
