@@ -22,13 +22,15 @@
 
 <body>
 
-    <div class="lang-switch" aria-label="Language selector">
-        <button class="lang-btn" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+    <div class="top-actions">
+        <div class="lang-switch" aria-label="Language selector">
+            <button class="lang-btn" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar tema">
+            <i data-lucide="moon" id="theme-icon"></i>
+        </button>
     </div>
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar tema">
-        <i data-lucide="moon" id="theme-icon"></i>
-    </button>
 
     <div class="bg-animation"></div>
     <header class="site-header" role="banner">
@@ -305,7 +307,7 @@
             localStorage.setItem('theme', theme);
         }
 
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
 
         themeToggle.addEventListener('click', () => {
