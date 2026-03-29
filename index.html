@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Geovanne - Desenvolvedor apaixonado por tecnologia e games. Confira meu portfólio, projetos e interesses pessoais.">
+    <meta name="theme-color" content="#03050a">
+    <meta property="og:title" content="Geovanne - Desenvolvedor & Gamer">
+    <meta property="og:description"
+        content="Jovem entusiasta de tecnologia. Encontrei na programação o meio de unir raciocínio lógico e criatividade.">
+    <meta property="og:type" content="website">
+    <title>Geovanne • Portifólio</title>
+
+    <link rel="shortcut icon" href="Fotos/star_transparent_v2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="lang-switch" aria-label="Language selector">
+        <button class="lang-btn" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar tema">
+        <i data-lucide="moon" id="theme-icon"></i>
+    </button>
+
+    <div class="bg-animation"></div>
+    <header class="site-header" role="banner">
+    </header>
+
+    <div class="container d-flex flex-column align-items-center py-5 gap-5">
+
+        <div class="card-custom reveal reveal-left">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="tag-name">
+                        <div class="dot"></div> Geovanne
+                    </div>
+                    <h1 class="display-4 fw-bold greeting-title">
+                        <span class="greeting-prefix" data-i18n="greetingPrefix">Olá, eu sou</span>
+                        <span class="greeting-name" data-i18n="greetingName">Geovanne</span>
+                    </h1>
+                    <p class="bio" data-i18n="bio">Jovem entusiasta de tecnologia e cultura gamer. Encontrei na
+                        programação o meio de unir
+                        raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de
+                        problemas dos jogos no desenvolvimento de software.</p>
+                    <div class="divider"></div>
+                    <p class="social-title" data-i18n="connect">Conecte-se comigo</p>
+                    <div class="row g-2 reveal-child">
+                        <div class="col-sm-4 reveal reveal-scale">
+                            <a href="https://www.instagram.com/oliveirahxxs_/" class="social-btn w-100" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18"
+                                    class="icon-instagram">
+                                    <path fill="currentColor"
+                                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                </svg>
+                                <div class="social-info">
+                                    <strong>Instagram</strong>
+                                    <span>@oliveirahxxs_</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 reveal reveal-scale">
+                            <a href="https://discord.com/users/732259821012779038" class="social-btn w-100"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" width="20"
+                                    height="20" class="icon-discord">
+                                    <path fill="currentColor"
+                                        d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.63.4,80.21a105.73,105.73,0,0,0,32.17,16.15,77.7,77.7,0,0,0,6.89-11.11,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.72-27.37-4.71-51.15-19.45-72.14ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.07,65.69,84.69,65.69Z" />
+                                </svg>
+                                <div class="social-info">
+                                    <strong>Discord</strong>
+                                    <span>@Capitaum_</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 reveal reveal-scale">
+                            <a href="https://github.com/Geovanne23/Geovanne23" class="social-btn w-100" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20"
+                                    class="icon-github">
+                                    <path fill="currentColor"
+                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.5 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-41.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                                </svg>
+                                <div class="social-info">
+                                    <strong>GitHub</strong>
+                                    <span>Geovanne23</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 reveal reveal-scale">
+                            <a href="https://linkedin.com/in/geovanne-augusto/?skipRedirect=true"
+                                class="social-btn w-100" target="_blank" rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-linkedin" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                </svg>
+                                <div class="social-info">
+                                    <strong>LinkedIn</strong>
+                                    <span>Geovanne Augusto</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <div class="avatar-wrapper mx-auto">
+                        <img src="Fotos/perfil.jpg" alt="Avatar" class="avatar-img">
+                        <div class="status-badge">
+                            <div class="dot"></div><span class="status-name" data-i18n="statusName">GEOVANNE</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card-custom reveal" id="about">
+            <h2 class="h5 fw-bold mb-4" data-i18n="aboutTitle">Sobre mim</h2>
+            <div class="divider"></div>
+            <div class="about-grid reveal-child">
+                <div class="about-item reveal reveal-scale">
+                    <i data-lucide="music" class="about-icon" aria-hidden="true"></i>
+                    <div class="about-content">
+                        <strong data-i18n="aboutMusicLabel">Música favorita:</strong>
+                        <span data-i18n="aboutMusicValue">Blinding Lights - The Weeknd</span>
+                    </div>
+                </div>
+                <div class="about-item reveal reveal-scale">
+                    <i data-lucide="user" class="about-icon" aria-hidden="true"></i>
+                    <div class="about-content">
+                        <strong data-i18n="aboutArtistLabel">Artista:</strong>
+                        <span data-i18n="aboutArtistValue">Matuê</span>
+                    </div>
+                </div>
+                <div class="about-item reveal reveal-scale">
+                    <i data-lucide="film" class="about-icon" aria-hidden="true"></i>
+                    <div class="about-content">
+                        <strong data-i18n="aboutMovieLabel">Filme/Série Favorita:</strong>
+                        <span data-i18n="aboutMovieValue">911, Interestelar</span>
+                    </div>
+                </div>
+                <div class="about-item reveal reveal-scale">
+                    <i data-lucide="gamepad" class="about-icon" aria-hidden="true"></i>
+                    <div class="about-content">
+                        <strong data-i18n="aboutGameLabel">Jogo favorito:</strong>
+                        <span data-i18n="aboutGameValue">Valorant, Minecraft, </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-custom reveal" id="projects">
+            <h2 class="h5 fw-bold mb-4" data-i18n="projectsTitle">Projetos</h2>
+            <div class="divider"></div>
+            <div class="projects-grid reveal-child">
+                <article class="project-card reveal reveal-scale">
+                    <div class="project-media"><img src="Fotos/Filme.png" alt="Filmes e Séries - thumbnail"></div>
+                    <div class="project-body">
+                        <h3 class="project-title" data-i18n="proj1Title">Filmes e Series</h3>
+                        <p class="project-desc" data-i18n="proj1Desc">Um site para exibir filmes </p>
+                        <div class="tech-badges"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Geovanne23/Filmes-e-Series" class="btn btn-outline-light btn-sm"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
+                            <a href="https://geovanne23.github.io/Filmes-e-Series/" class="btn btn-outline-light btn-sm"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnLive">Live</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal reveal-scale">
+                    <div class="project-media"><img src="Fotos/Ecommerce.png" alt="Project 2"></div>
+                    <div class="project-body">
+                        <h3 class="project-title" data-i18n="proj2Title">E-Commerce</h3>
+                        <p class="project-desc" data-i18n="proj2Desc">Um pequeno projeto de e-commerce para venda de
+                            produtos.</p>
+                        <div class="tech-badges"><span>React</span><span>JavaScript</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Geovanne23/E-Commerce" class="btn btn-outline-light btn-sm"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
+                            <a href="#" class="btn btn-outline-light btn-sm disabled" aria-disabled="true"
+                                data-i18n="projBtnLive">Live</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card reveal reveal-scale">
+                    <div class="project-media"><img src="Fotos/login.png" alt="Project 3"></div>
+                    <div class="project-body">
+                        <h3 class="project-title" data-i18n="proj3Title">Tela de Login</h3>
+                        <p class="project-desc" data-i18n="proj3Desc">Uma página de login para um aplicativo web.</p>
+                        <div class="tech-badges"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Geovanne23/Login-Screen" class="btn btn-outline-light btn-sm"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
+                            <a href="https://geovanne23.github.io/Login-Screen/" class="btn btn-outline-light btn-sm"
+                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnLive">Live</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        const translations = {
+            pt: {
+                greetingPrefix: 'Olá, eu sou',
+                greetingName: 'Geovanne',
+                bio: 'Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de problemas dos jogos no desenvolvimento de software.',
+                connect: 'Conecte-se comigo',
+                aboutTitle: 'Sobre mim',
+                aboutMusicLabel: 'Música favorita',
+                aboutMusicValue: 'Isso é Sério, 333',
+                aboutArtistLabel: 'Artista',
+                aboutArtistValue: 'Matuê',
+                aboutMovieLabel: 'Filme/Série Favorita',
+                aboutMovieValue: '911, Interestelar',
+                aboutGameLabel: 'Jogo favorito',
+                aboutGameValue: 'Valorant, Minecraft, Age Of Empires',
+                gamesTitle: 'Jogos Favoritos',
+                seriesTitle: 'Séries Favoritas',
+                interestValorant: 'Valorant',
+                interestMinecraft: 'Minecraft',
+                interestAoE4: 'Age of Empires',
+                interest911: '911',
+                interestInterstellar: 'Interestelar',
+                interestRookie: 'The Rookie',
+                footerByline: 'Feito por Geovanne',
+                navProjects: 'Projetos',
+                navInterests: 'Interesses',
+                projectsTitle: 'Projetos',
+                proj1Title: 'Filmes e Séries',
+                proj1Desc: 'Um site para exibir filmes e séries favoritos.',
+                proj2Title: 'E-Commerce',
+                proj2Desc: 'Um site de comércio eletrônico para venda de produtos.',
+                proj3Title: 'Tela de Login',
+                proj3Desc: 'Uma página de login para um aplicativo web.',
+                projBtnCode: 'Ver código',
+                projBtnLive: 'Demo'
+            },
+            en: {
+                greetingPrefix: 'Hi, I am',
+                greetingName: 'Geovanne',
+                bio: 'Young tech and gaming enthusiast. I found programming as a way to combine logical thinking and creativity to build new solutions, applying a game problem-solving mindset to software development.',
+                connect: 'Connect with me',
+                aboutTitle: 'About me',
+                aboutMusicLabel: 'Favorite music',
+                aboutMusicValue: 'Blinding Lights - The Weeknd',
+                aboutArtistLabel: 'Artist',
+                aboutArtistValue: 'The Weeknd',
+                aboutMovieLabel: 'Favorite movie/series',
+                aboutMovieValue: 'The Witcher',
+                aboutGameLabel: 'Favorite game',
+                aboutGameValue: 'Valorant',
+                gamesTitle: 'Favorite Games',
+                seriesTitle: 'Favorite Series',
+
+                interestsTitle: 'Personal Interests',
+                interestValorant: 'Valorant',
+                interestMinecraft: 'Minecraft',
+                interestAoE4: 'Age of Empires 4',
+                interest911: '911',
+                interestInterstellar: 'Interstellar',
+                interestRookie: 'The Rookie',
+                footerByline: 'by Geovanne',
+                navProjects: 'Projects',
+                navInterests: 'Interests',
+                projectsTitle: 'Projects',
+                proj1Title: 'Movies and Series',
+                proj1Desc: 'A website to display favorite movies and series.',
+                proj2Title: 'E-Commerce',
+                proj2Desc: 'A website for online shopping.',
+                proj3Title: 'Login Screen',
+                proj3Desc: 'A login page for a web application.',
+                projBtnCode: 'View Code',
+                projBtnLive: 'Live Demo'
+            }
+        };
+
+        function setTheme(theme) {
+            if (theme === 'light') {
+                body.classList.add('light-theme');
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                body.classList.remove('light-theme');
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+            localStorage.setItem('theme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const now = body.classList.contains('light-theme') ? 'light' : 'dark';
+            setTheme(now === 'light' ? 'dark' : 'light');
+        });
+
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            localStorage.setItem('lang', lang);
+        }
+
+        const savedLang = localStorage.getItem('lang') || 'pt';
+        applyTranslations(savedLang);
+
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyTranslations(btn.dataset.lang)));
+
+        // Smooth scroll for header nav links
+        document.querySelectorAll('.site-nav .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll Reveal using IntersectionObserver
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+    <footer class="site-footer py-4">
+        <div class="container text-center">
+            <small>Geovanne © 2026</small>
+        </div>
+    </footer>
+</body>
+
+</html>
