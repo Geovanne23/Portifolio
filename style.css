@@ -886,22 +886,134 @@ body.light-theme .lang-btn.active {
     overflow: hidden;
 }
 
+.btn-contact:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 .btn-email {
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: white !important;
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-email:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
 }
 
 .btn-discord {
     background: linear-gradient(135deg, #5865F2, #4752C4);
     color: white !important;
     box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.btn-contact:hover {
+.btn-discord:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 30px rgba(88, 101, 242, 0.4);
+}
+
+.btn-copy {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn-copy-inline {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 6px;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-inline:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.btn-copy-inline i {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.email-display {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-radius: 14px;
+    padding: 4px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.email-display:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+}
+
+.email-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.email-link i {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.email-link span {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-copy-email {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-copy-email:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-copy-email i {
+    width: 18px;
+    height: 18px;
+    color: white;
 }
 
 .btn-contact i {
@@ -1449,10 +1561,49 @@ body.light-theme .btn-email {
     border: none;
 }
 
+body.light-theme .btn-email:hover {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+}
+
 body.light-theme .btn-discord {
     background: linear-gradient(135deg, #5865F2, #4752C4);
     box-shadow: 0 10px 25px rgba(88, 101, 242, 0.25);
     border: none;
+}
+
+body.light-theme .btn-discord:hover {
+    box-shadow: 0 15px 35px rgba(88, 101, 242, 0.35);
+}
+
+body.light-theme .btn-copy {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+    border: none;
+}
+
+body.light-theme .btn-copy-inline {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+body.light-theme .btn-copy-inline:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+body.light-theme .email-display {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+}
+
+body.light-theme .email-link {
+    color: white !important;
+}
+
+body.light-theme .btn-copy-email {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+body.light-theme .btn-copy-email:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 body.light-theme .btn-contact:hover {
@@ -1904,4 +2055,4 @@ body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); 
 ::view-transition-new(root) {
   z-index: 999;
 }
-
+

@@ -305,10 +305,15 @@
                     conversar, me chame!
                 </p>
                 <div class="d-flex flex-wrap justify-content-center gap-3 reveal reveal-scale">
-                    <a href="mailto:Geovanne.ado@outlook" class="btn-contact btn-email">
-                        <i data-lucide="mail"></i>
-                        <span data-i18n="contactEmailBtn">Enviar E-mail</span>
-                    </a>
+                    <div class="email-display">
+                        <a href="mailto:Geovanne.ado@outlook.com" class="email-link">
+                            <i data-lucide="mail"></i>
+                            <span>Geovanne.ado@outlook.com</span>
+                        </a>
+                        <button class="btn-copy-email" onclick="copyEmail(event)" id="copyBtn" title="Copiar email">
+                            <i data-lucide="copy"></i>
+                        </button>
+                    </div>
                     <a href="https://discord.com/users/732259821012779038" target="_blank"
                         class="btn-contact btn-discord">
                         <i data-lucide="message-square"></i>
@@ -360,6 +365,25 @@
         window.scrollTo(0, 0);
 
         lucide.createIcons();
+
+        function copyEmail(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const email = 'Geovanne.ado@outlook.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const copyBtn = document.getElementById('copyBtn');
+                const originalHTML = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i data-lucide="check"></i>';
+                copyBtn.style.background = 'rgba(16, 185, 129, 0.8)';
+                lucide.createIcons();
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalHTML;
+                    copyBtn.style.background = '';
+                    lucide.createIcons();
+                }, 2000);
+            });
+        }
+
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const body = document.body;
@@ -403,6 +427,7 @@
                 contactTitle: 'Vamos construir algo juntos?',
                 contactDesc: 'Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas conversar, me chame!',
                 contactEmailBtn: 'Enviar E-mail',
+                contactCopyBtn: 'Copiar E-mail',
                 contactDiscordBtn: 'Discord',
                 projBtnCode: 'Ver código',
                 projBtnLive: 'Demo'
@@ -447,6 +472,7 @@
                 contactTitle: 'Let\'s build something together?',
                 contactDesc: 'I’m always looking for new challenges and collaborations. If you have an idea or just want to chat, get in touch!',
                 contactEmailBtn: 'Send Email',
+                contactCopyBtn: 'Copy Email',
                 contactDiscordBtn: 'Discord',
                 projBtnCode: 'View Code',
                 projBtnLive: 'Live Demo'
