@@ -811,43 +811,75 @@ body.light-theme .icon-github {
 /* Language switch (top-left of toggle) */
 .lang-switch {
     display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    height: 38px;
     align-items: center;
-    gap: 8px;
 }
 
 .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: var(--text-main);
-    padding: 6px 8px;
-    border-radius: 8px;
+    border: none;
+    color: #9ca3af;
+    padding: 6px 14px;
+    font-size: 11px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 160ms ease;
+    transition: color 0.3s ease;
+    border-radius: 40px;
+    z-index: 2;
+    position: relative;
 }
 
 .lang-btn.active {
-    background: rgba(93, 190, 255, 0.08);
-    border-color: rgba(93, 190, 255, 0.14);
+    color: white;
 }
 
-.lang-btn:hover {
-    background: rgba(93, 190, 255, 0.12);
-    border-color: rgba(93, 190, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Background pill that slides */
+.switch-pill {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: linear-gradient(135deg, #5dbeff, #3b82f6);
+    border-radius: 40px;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(93, 190, 255, 0.3);
 }
 
-body.light-theme .lang-btn.active {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: rgba(59, 130, 246, 0.25);
+.lang-switch[data-active="en"] .switch-pill {
+    transform: translateX(100%);
+}
+
+.lang-btn svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    border-radius: 50%; 
+}
+
+body.light-theme .lang-switch {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 body.light-theme .lang-btn:hover {
-    background: rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.35);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    color: #0f172a;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .lang-btn.active {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.3);
 }
 
 /* Contact Section Styles */
@@ -1541,30 +1573,49 @@ body.light-theme #contact .contact-description {
 .music-player-widget {
     position: fixed;
     bottom: 24px;
-    right: 0; /* Align to the screen edge */
-    background: rgba(18, 24, 38, 0.85);
+    right: 20px; 
+    background: rgba(18, 24, 38, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px 0 0 20px; /* More rounded for tab feel */
-    padding: 0 12px;
+    border: 1px solid rgba(93, 190, 255, 0.25);
+    border-radius: 24px;
+    padding: 0 24px 0 16px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Reduced gap */
+    gap: 12px;
     z-index: 2000;
-    box-shadow: -4px 8px 32px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    max-width: 400px;
-    width: auto;
-    height: 48px; /* Slimmer pill shape */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    width: max-content; 
+    max-width: 90vw;
+    height: 56px; 
     
-    /* Initially hidden partially, as a floating tab */
-    transform: translateX(calc(100% - 64px));
+    /* Initially hidden mostly, moves away from the edge */
+    transform: translateX(calc(100% - 60px + 20px)); 
     cursor: pointer;
+    overflow: hidden;
 }
 
 .music-player-widget:hover {
-    transform: translateX(-10px);
+    transform: translateX(0); 
+    box-shadow: 0 12px 40px rgba(93, 190, 255, 0.3);
+    border-color: rgba(93, 190, 255, 0.6);
+}
+
+/* Premium flow glow animation for the player border */
+.music-player-widget:hover::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, transparent, rgba(93, 190, 255, 0.3), transparent);
+    border-radius: inherit;
+    z-index: -1;
+    animation: flow-glow 3s linear infinite;
+}
+
+@keyframes flow-glow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .music-info {
@@ -1598,7 +1649,8 @@ body.light-theme #contact .contact-description {
 .music-meta {
     display: flex;
     flex-direction: column;
-    min-width: 90px; /* Reduced to avoid large gaps */
+    min-width: 100px; 
+    max-width: 150px;
 }
 
 .song-title {
@@ -1617,6 +1669,16 @@ body.light-theme #contact .contact-description {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.2;
+}
+
+.next-song-label {
+    font-size: 9px;
+    color: rgba(156, 163, 175, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+    font-style: italic;
 }
 
 .music-controls {
@@ -1642,7 +1704,7 @@ body.light-theme #contact .contact-description {
 
 .music-btn:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #a855f7;
+    color: var(--accent-blue);
 }
 
 .volume-control {
@@ -1670,7 +1732,7 @@ body.light-theme #contact .contact-description {
     appearance: none;
     width: 60px;
     height: 4px;
-    background: linear-gradient(to right, #a855f7 0%, #a855f7 var(--volume-percent, 10%), var(--volume-track-bg, rgba(255, 255, 255, 0.1)) var(--volume-percent, 10%), var(--volume-track-bg, rgba(255, 255, 255, 0.1)) 100%);
+    background: linear-gradient(to right, var(--accent-blue) 0%, var(--accent-blue) var(--volume-percent, 10%), var(--volume-track-bg, rgba(255, 255, 255, 0.1)) var(--volume-percent, 10%), var(--volume-track-bg, rgba(255, 255, 255, 0.1)) 100%);
     border-radius: 5px;
     outline: none;
     cursor: pointer;
@@ -1681,26 +1743,26 @@ body.light-theme #contact .contact-description {
     appearance: none;
     width: 12px;
     height: 12px;
-    background: #a855f7;
+    background: var(--accent-blue);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 10px rgba(93, 190, 255, 0.6);
     transition: all 0.2s ease;
 }
 
 #music-volume::-webkit-slider-thumb:hover {
     transform: scale(1.3);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+    box-shadow: 0 0 15px rgba(93, 190, 255, 0.8);
 }
 
 #music-volume::-moz-range-thumb {
     width: 12px;
     height: 12px;
-    background: #a855f7;
+    background: var(--accent-blue);
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 10px rgba(93, 190, 255, 0.6);
 }
 
 /* Animations */
@@ -1727,6 +1789,7 @@ body.light-theme .music-btn { color: #1e293b; }
 body.light-theme .v-icon, body.light-theme #volume-value { color: #64748b; }
 body.light-theme .music-controls { border-left-color: rgba(0, 0, 0, 0.1); }
 body.light-theme .music-btn:hover { background: rgba(0, 0, 0, 0.05); }
+body.light-theme .next-song-label { color: #64748b; }
 body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); }
 
 @media (max-width: 576px) {
@@ -1792,3 +1855,12 @@ body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); 
         display: none !important;
     }
 }
+
+/* Language switching animation */
+.lang-switching {
+    opacity: 1; /* Instant update now */
+}
+
+.container {
+    transition: none; /* Removed page slide */
+}

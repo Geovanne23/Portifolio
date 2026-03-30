@@ -23,9 +23,38 @@
 <body>
 
     <div class="top-actions">
-        <div class="lang-switch" aria-label="Language selector">
-            <button class="lang-btn" data-lang="pt">PT</button>
-            <button class="lang-btn" data-lang="en">EN</button>
+        <div class="lang-switch" id="lang-switch-container" aria-label="Language selector" data-active="pt">
+            <div class="switch-pill"></div>
+            <button class="lang-btn" data-lang="pt" title="Português">
+                <svg viewBox="0 0 64 64" width="20" height="20">
+                    <circle cx="32" cy="32" r="32" fill="#009739"/>
+                    <path d="M32 12L52 32L32 52L12 32Z" fill="#fedd00"/>
+                    <circle cx="32" cy="32" r="12" fill="#012169"/>
+                    <path d="M20 32c0 0 6-4 12-4s12 4 12 4" stroke="white" stroke-width="1.5" fill="none"/>
+                </svg>
+                <span>PT</span>
+            </button>
+            <button class="lang-btn" data-lang="en" title="English">
+                <svg viewBox="0 0 64 64" width="20" height="20">
+                    <clipPath id="circleMask">
+                        <circle cx="32" cy="32" r="32"/>
+                    </clipPath>
+                    <g clip-path="url(#circleMask)">
+                        <rect width="64" height="64" fill="#f0f0f0"/>
+                        <path d="M0 6h64v6H0zM0 18h64v6H0zM0 30h64v6H0zM0 42h64v6H0zM0 54h64v6H0z" fill="#b22234"/>
+                        <rect width="32" height="32" fill="#3c3b6e"/>
+                        <circle cx="8" cy="8" r="1.5" fill="white"/>
+                        <circle cx="16" cy="8" r="1.5" fill="white"/>
+                        <circle cx="24" cy="8" r="1.5" fill="white"/>
+                        <circle cx="12" cy="16" r="1.5" fill="white"/>
+                        <circle cx="20" cy="16" r="1.5" fill="white"/>
+                        <circle cx="8" cy="24" r="1.5" fill="white"/>
+                        <circle cx="16" cy="24" r="1.5" fill="white"/>
+                        <circle cx="24" cy="24" r="1.5" fill="white"/>
+                    </g>
+                </svg>
+                <span>EN</span>
+            </button>
         </div>
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar tema">
             <i data-lucide="moon" id="theme-icon"></i>
@@ -290,6 +319,7 @@
             <div class="music-meta">
                 <span class="song-title">333</span>
                 <span class="artist-name">Matuê</span>
+                <span class="next-song-label">Próxima: Isso é Sério</span>
             </div>
         </div>
         <div class="music-controls">
@@ -441,13 +471,26 @@
                 }
             });
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            document.getElementById('lang-switch-container').setAttribute('data-active', lang);
             localStorage.setItem('lang', lang);
         }
 
+        // Initialize language
         const savedLang = localStorage.getItem('lang') || 'pt';
-        applyTranslations(savedLang);
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[savedLang] && translations[savedLang][key]) {
+                el.textContent = translations[savedLang][key];
+            }
+        });
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === savedLang));
+        document.getElementById('lang-switch-container').setAttribute('data-active', savedLang);
 
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyTranslations(btn.dataset.lang)));
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+            if (localStorage.getItem('lang') !== btn.dataset.lang) {
+                applyTranslations(btn.dataset.lang);
+            }
+        }));
 
         // Smooth scroll for header nav links
         document.querySelectorAll('.site-nav .nav-link').forEach(link => {
@@ -488,13 +531,19 @@
         const volumeValue = document.getElementById('volume-value');
         const songTitleEl = document.querySelector('.song-title');
         const artistNameEl = document.querySelector('.artist-name');
+        const nextSongEl = document.querySelector('.next-song-label');
         const musicIconContainer = document.getElementById('music-icon-container');
+        const playerWidget = document.querySelector('.music-player-widget');
 
         function loadTrack(index) {
             const song = songs[index];
+            const nextSong = songs[(index + 1) % songs.length];
+            
             music.src = song.src;
             songTitleEl.textContent = song.title;
             artistNameEl.textContent = song.artist;
+            nextSongEl.textContent = `Próxima: ${nextSong.title}`;
+            
             music.load();
         }
 
@@ -550,7 +599,7 @@
         music.volume = 0.1;
         volumeSlider.value = 0.1;
         updateVolumeProgress();
-        togglePulse(false); // Start without pulse until someone clicks Play
+        togglePulse(false); 
     </script>
     <footer class="site-footer pb-4 pt-0">
         <div class="container text-center">
