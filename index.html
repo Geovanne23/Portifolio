@@ -443,24 +443,49 @@
             }
         };
 
-        function setTheme(theme) {
-            if (theme === 'light') {
-                body.classList.add('light-theme');
-                themeIcon.setAttribute('data-lucide', 'sun');
-            } else {
-                body.classList.remove('light-theme');
-                themeIcon.setAttribute('data-lucide', 'moon');
+        function setTheme(theme, event) {
+            const changeTheme = () => {
+                if (theme === 'light') {
+                    body.classList.add('light-theme');
+                    themeIcon.setAttribute('data-lucide', 'sun');
+                } else {
+                    body.classList.remove('light-theme');
+                    themeIcon.setAttribute('data-lucide', 'moon');
+                }
+                lucide.createIcons();
+                localStorage.setItem('theme', theme);
+            };
+
+            // Skip animation if View Transitions not available or not interactive
+            if (!document.startViewTransition || !event) {
+                changeTheme();
+                return;
             }
-            lucide.createIcons();
-            localStorage.setItem('theme', theme);
+
+            const x = event.clientX;
+            const y = event.clientY;
+            const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+            const transition = document.startViewTransition(changeTheme);
+
+            transition.ready.then(() => {
+                document.documentElement.animate(
+                    { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`] },
+                    { 
+                        duration: 550, 
+                        easing: 'cubic-bezier(0.19, 1, 0.22, 1)', 
+                        pseudoElement: '::view-transition-new(root)' 
+                    }
+                );
+            });
         }
 
         const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const now = body.classList.contains('light-theme') ? 'light' : 'dark';
-            setTheme(now === 'light' ? 'dark' : 'light');
+        themeToggle.addEventListener('click', (e) => {
+            const isLight = body.classList.contains('light-theme');
+            setTheme(isLight ? 'dark' : 'light', e);
         });
 
         function applyTranslations(lang) {

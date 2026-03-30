@@ -1794,44 +1794,33 @@ body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); 
 
 @media (max-width: 576px) {
     .music-player-widget {
-        bottom: 25px;
+        bottom: 20px;
         left: 50%;
         right: auto;
-        transform: translateX(-50%) !important;
-        width: 92%;
-        max-width: 320px;
-        height: 48px !important;
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        background: rgba(18, 24, 38, 0.95) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        border-radius: 24px !important;
-        padding: 0 12px !important;
-        z-index: 9999 !important;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 400px; /* Wider to allow volume control */
+        height: 56px;
+        padding: 0 16px;
+        border-radius: 28px;
+        background: rgba(18, 24, 38, 0.96);
     }
     
     .music-player-widget:hover {
-        transform: translateX(-50%) !important;
+        transform: translateX(-50%); /* Stay centered on mobile */
     }
 
     .music-info {
-        flex: 1;
-        min-width: 0;
         gap: 8px;
     }
 
     .music-icon-wrapper {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
     }
 
     .music-meta {
-        min-width: 0;
+        min-width: 80px;
     }
 
     .song-title {
@@ -1843,16 +1832,26 @@ body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); 
     }
     
     .music-controls {
-        gap: 2px;
-        padding-left: 8px;
+        gap: 4px;
+        padding-left: 10px;
     }
 
     .music-btn {
         padding: 4px;
     }
 
+    /* Re-enable and optimize volume for mobile */
     .volume-control {
-        display: none !important;
+        display: flex !important;
+        gap: 6px;
+    }
+    
+    #music-volume {
+        width: 45px; /* Shorter on mobile */
+    }
+
+    #volume-value {
+        font-size: 9px;
     }
 }
 
@@ -1863,4 +1862,20 @@ body.light-theme .music-player-widget { --volume-track-bg: rgba(0, 0, 0, 0.08); 
 
 .container {
     transition: none; /* Removed page slide */
-}
+}
+
+/* Theme Reveal Animation (View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999;
+}
+
