@@ -133,11 +133,16 @@
             <div class="divider"></div>
             <div class="skills-container reveal-child">
                 <span class="skill-pill reveal reveal-scale"><i data-lucide="code" aria-hidden="true"></i> HTML5</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="file-json" aria-hidden="true"></i> CSS3</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="braces" aria-hidden="true"></i> JavaScript</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="atom" aria-hidden="true"></i> React.js</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="terminal-square" aria-hidden="true"></i> Node.js</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="git-merge" aria-hidden="true"></i> Git</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="file-json" aria-hidden="true"></i>
+                    CSS3</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="braces" aria-hidden="true"></i>
+                    JavaScript</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="atom" aria-hidden="true"></i>
+                    React.js</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="terminal-square" aria-hidden="true"></i>
+                    Node.js</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="git-merge" aria-hidden="true"></i>
+                    Git</span>
             </div>
         </div>
 
@@ -253,16 +258,20 @@
         <!-- Nova Seção de Contato -->
         <div class="card-custom reveal" id="contact">
             <div class="text-center py-4 reveal-child">
-                <h2 class="h4 fw-bold mb-3 reveal reveal-scale" data-i18n="contactTitle">Vamos construir algo juntos?</h2>
-                <p class="text-muted mb-4 mx-auto reveal reveal-scale" style="max-width: 500px;" data-i18n="contactDesc">
-                    Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas conversar, me chame!
+                <h2 class="h4 fw-bold mb-3 reveal reveal-scale" data-i18n="contactTitle">Vamos construir algo juntos?
+                </h2>
+                <p class="mb-4 mx-auto reveal reveal-scale contact-description" style="max-width: 500px;"
+                    data-i18n="contactDesc">
+                    Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas
+                    conversar, me chame!
                 </p>
                 <div class="d-flex flex-wrap justify-content-center gap-3 reveal reveal-scale">
                     <a href="mailto:Geovanne.ado@outlook" class="btn-contact btn-email">
                         <i data-lucide="mail"></i>
                         <span data-i18n="contactEmailBtn">Enviar E-mail</span>
                     </a>
-                    <a href="https://discord.com/users/732259821012779038" target="_blank" class="btn-contact btn-discord">
+                    <a href="https://discord.com/users/732259821012779038" target="_blank"
+                        class="btn-contact btn-discord">
                         <i data-lucide="message-square"></i>
                         <span data-i18n="contactDiscordBtn">Discord</span>
                     </a>
@@ -270,6 +279,37 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Music Player Widget -->
+    <div class="music-player-widget">
+        <div class="music-info">
+            <div id="music-icon-container" class="music-icon-wrapper">
+                <img src="Fotos/album-333.jpg" alt="Album Art" id="album-art-img">
+            </div>
+            <div class="music-meta">
+                <span class="song-title">333</span>
+                <span class="artist-name">Matuê</span>
+            </div>
+        </div>
+        <div class="music-controls">
+            <button id="music-play-pause" class="music-btn" aria-label="Tocar/Pausar">
+                <span id="play-icon-wrapper"><i data-lucide="play"></i></span>
+                <span id="pause-icon-wrapper" style="display: none;"><i data-lucide="pause"></i></span>
+            </button>
+            <button id="music-skip" class="music-btn" aria-label="Próxima">
+                <i data-lucide="skip-forward"></i>
+            </button>
+            <div class="volume-control">
+                <i data-lucide="volume-2" class="v-icon"></i>
+                <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.1">
+                <span id="volume-value">10%</span>
+            </div>
+        </div>
+        <audio id="bg-music">
+            <source src="Musica/333.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <script>
@@ -432,6 +472,85 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const songs = [
+            { title: '333', artist: 'Matuê', src: 'Musica/333.mp3' },
+            { title: 'Isso é Sério', artist: 'Matuê', src: 'Musica/isso_e_serio.mp3' }
+        ];
+        let currentSongIndex = 0;
+
+        const music = document.getElementById('bg-music');
+        const playPauseBtn = document.getElementById('music-play-pause');
+        const skipBtn = document.getElementById('music-skip');
+        const playIconWrapper = document.getElementById('play-icon-wrapper');
+        const pauseIconWrapper = document.getElementById('pause-icon-wrapper');
+        const volumeSlider = document.getElementById('music-volume');
+        const volumeValue = document.getElementById('volume-value');
+        const songTitleEl = document.querySelector('.song-title');
+        const artistNameEl = document.querySelector('.artist-name');
+        const musicIconContainer = document.getElementById('music-icon-container');
+
+        function loadTrack(index) {
+            const song = songs[index];
+            music.src = song.src;
+            songTitleEl.textContent = song.title;
+            artistNameEl.textContent = song.artist;
+            music.load();
+        }
+
+        function togglePulse(playing) {
+            if (playing) {
+                musicIconContainer.classList.add('pulse-animation');
+                playIconWrapper.style.display = 'none';
+                pauseIconWrapper.style.display = 'inline-flex';
+            } else {
+                musicIconContainer.classList.remove('pulse-animation');
+                playIconWrapper.style.display = 'inline-flex';
+                pauseIconWrapper.style.display = 'none';
+            }
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log('Autoplay blocked'));
+                togglePulse(true);
+            } else {
+                music.pause();
+                togglePulse(false);
+            }
+        });
+
+        skipBtn.addEventListener('click', () => {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadTrack(currentSongIndex);
+            music.play().catch(e => console.log('Autoplay blocked'));
+            togglePulse(true);
+        });
+
+        music.addEventListener('ended', () => {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadTrack(currentSongIndex);
+            music.play();
+            togglePulse(true);
+        });
+
+        function updateVolumeProgress() {
+            const percent = Math.round(volumeSlider.value * 100);
+            volumeSlider.style.setProperty('--volume-percent', percent + '%');
+            volumeValue.textContent = percent + '%';
+        }
+
+        volumeSlider.addEventListener('input', (e) => {
+            music.volume = e.target.value;
+            updateVolumeProgress();
+        });
+
+        // Initialize first track and volume (10%)
+        loadTrack(currentSongIndex);
+        music.volume = 0.1;
+        volumeSlider.value = 0.1;
+        updateVolumeProgress();
+        togglePulse(false); // Start without pulse until someone clicks Play
     </script>
     <footer class="site-footer pb-4 pt-0">
         <div class="container text-center">
