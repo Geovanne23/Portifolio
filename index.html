@@ -22,8 +22,10 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* Critical CSS for immediate paint */
-        body { background: #03050a; color: #f8fafc; margin: 0; font-family: 'Inter', sans-serif; }
-        .bg-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #03050a; }
+        :root { --bg-base: #03050a; --text-color: #f8fafc; }
+        body.light-theme { --bg-base: #f8fafc; --text-color: #0f172a; }
+        html, body { background: var(--bg-base); color: var(--text-color); margin: 0; font-family: 'Inter', sans-serif; min-height: 100vh; }
+        .bg-animation { position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; z-index: -1; background: var(--bg-base); }
         .reveal { opacity: 0; }
     </style>
 </head>
