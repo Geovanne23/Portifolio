@@ -14,14 +14,18 @@
 
 body.light-theme {
     --bg-dark: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.85); /* Mais clareza e opacidade para o glassmorphism */
+    --bg-card: rgba(255, 255, 255, 0.85);
+    /* Mais clareza e opacidade para o glassmorphism */
     --bg-button: #ffffff;
     --text-main: #0f172a;
-    --text-muted: #334155; /* Escurecido para melhor contraste */
+    --text-muted: #334155;
+    /* Escurecido para melhor contraste */
     --border-color: rgba(0, 0, 0, 0.08);
     --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    --accent-blue: #2563eb; /* Azul profundo no lugar de ciano */
-    --accent-green: #059669; /* Verde mais escuro e legível */
+    --accent-blue: #2563eb;
+    /* Azul profundo no lugar de ciano */
+    --accent-green: #059669;
+    /* Verde mais escuro e legível */
 }
 
 html {
@@ -565,6 +569,41 @@ body.light-theme .theme-toggle-btn:hover {
     animation-delay: -2s;
 }
 
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(93, 190, 255, 0.1), rgba(124, 58, 237, 0.05));
+    border: 1px solid rgba(93, 190, 255, 0.2);
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.skill-pill i, .skill-pill svg {
+    color: var(--accent-blue);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.skill-pill:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(93, 190, 255, 0.15);
+    border-color: rgba(93, 190, 255, 0.4);
+    background: linear-gradient(135deg, rgba(93, 190, 255, 0.15), rgba(124, 58, 237, 0.1));
+}
+
 .icon-instagram {
     color: #E4405F;
 }
@@ -772,6 +811,7 @@ body.light-theme .icon-github {
 /* Language switch (top-left of toggle) */
 .lang-switch {
     display: flex;
+    align-items: center;
     gap: 8px;
 }
 
@@ -786,28 +826,73 @@ body.light-theme .icon-github {
     transition: all 160ms ease;
 }
 
-.lang-btn.active,
-.lang-btn:hover {
+.lang-btn.active {
     background: rgba(93, 190, 255, 0.08);
     border-color: rgba(93, 190, 255, 0.14);
+}
+
+.lang-btn:hover {
+    background: rgba(93, 190, 255, 0.12);
+    border-color: rgba(93, 190, 255, 0.2);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-body.light-theme .lang-btn.active,
-body.light-theme .lang-btn:hover {
+body.light-theme .lang-btn.active {
     background: rgba(59, 130, 246, 0.1);
     border-color: rgba(59, 130, 246, 0.25);
+}
+
+body.light-theme .lang-btn:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.35);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+/* Contact Section Styles */
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-email {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-discord {
+    background: linear-gradient(135deg, #5865F2, #4752C4);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+}
+
+.btn-contact:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-contact i {
+    width: 20px;
+    height: 20px;
 }
 
 /* Footer */
 .site-footer {
-    margin-top: 8px;
     color: var(--text-muted);
     text-align: center;
-    padding-top: 6px;
-    padding-bottom: 12px;
+    padding-bottom: 24px;
 }
 
 .site-footer small {
@@ -817,7 +902,8 @@ body.light-theme .lang-btn:hover {
 /* Light theme status badge */
 body.light-theme .status-badge {
     background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(0, 0, 0, 0.15); /* Torna a borda do GEOVANNE da foto mais visível */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* Torna a borda do GEOVANNE da foto mais visível */
     color: #0f172a;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     backdrop-filter: blur(12px);
@@ -1226,7 +1312,8 @@ html {
 /* Theme subtle tweaks */
 body.light-theme .card-custom {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
-    border: 1px solid rgba(0, 0, 0, 0.12); /* Mais presença no card principal */
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    /* Mais presença no card principal */
 }
 
 /* Light theme top tweaks */
@@ -1264,7 +1351,8 @@ body.light-theme .tech-badges span {
 /* Light theme: Sobre mim cards */
 body.light-theme .about-item {
     background-color: rgba(241, 245, 249, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.12); /* Fim de itens parecendo apagados */
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    /* Fim de itens parecendo apagados */
     color: #0f172a;
 }
 
@@ -1274,6 +1362,24 @@ body.light-theme .about-content strong {
 
 body.light-theme .about-content span {
     color: #475569;
+}
+
+/* Light theme: Skills */
+body.light-theme .skill-pill {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+body.light-theme .skill-pill:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+    background: #f8fafc;
+}
+
+body.light-theme .skill-pill i, body.light-theme .skill-pill svg {
+    color: #2563eb;
 }
 
 body.light-theme .about-icon {
@@ -1286,7 +1392,8 @@ body.light-theme .about-item:hover,
 body.light-theme .about-item:focus-within {
     background-color: #ffffff;
     box-shadow: 0 16px 32px rgba(37, 99, 235, 0.15);
-    border: 1px solid rgba(37, 99, 235, 0.35); /* Borda azul bem delimitada ao passar o mouse */
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    /* Borda azul bem delimitada ao passar o mouse */
 }
 
 /* Light theme: Interest items */
@@ -1314,6 +1421,23 @@ body.light-theme .project-links .btn-outline-light:hover {
     color: #1e3a8a;
 }
 
+/* Light theme: Contact Buttons */
+body.light-theme .btn-email {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+    border: none;
+}
+
+body.light-theme .btn-discord {
+    background: linear-gradient(135deg, #5865F2, #4752C4);
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.25);
+    border: none;
+}
+
+body.light-theme .btn-contact:hover {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+}
+
 /* Small utility helpers */
 .divider {
     opacity: 0.6;
@@ -1339,7 +1463,6 @@ body.light-theme .project-links .btn-outline-light:hover {
     display: block;
 }
 
-/* Override properties removed - default positioning set at the top is used */
 
 .project-media {
     width: 88px;

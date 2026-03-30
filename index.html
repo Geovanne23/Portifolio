@@ -7,7 +7,7 @@
     <meta name="description"
         content="Geovanne - Desenvolvedor apaixonado por tecnologia e games. Confira meu portfólio, projetos e interesses pessoais.">
     <meta name="theme-color" content="#03050a">
-    <meta property="og:title" content="Geovanne - Desenvolvedor & Gamer">
+    <meta property="og:title" content="Geovanne - Portifólio">
     <meta property="og:description"
         content="Jovem entusiasta de tecnologia. Encontrei na programação o meio de unir raciocínio lógico e criatividade.">
     <meta property="og:type" content="website">
@@ -36,7 +36,7 @@
     <header class="site-header" role="banner">
     </header>
 
-    <div class="container d-flex flex-column align-items-center py-5 gap-5">
+    <div class="container d-flex flex-column align-items-center pt-5 pb-0 gap-5">
 
         <div class="card-custom reveal reveal-left">
             <div class="row align-items-center">
@@ -127,6 +127,20 @@
 
 
 
+
+        <div class="card-custom reveal" id="skills">
+            <h2 class="h5 fw-bold mb-4" data-i18n="skillsTitle">Habilidades</h2>
+            <div class="divider"></div>
+            <div class="skills-container reveal-child">
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="code" aria-hidden="true"></i> HTML5</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="file-json" aria-hidden="true"></i> CSS3</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="braces" aria-hidden="true"></i> JavaScript</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="atom" aria-hidden="true"></i> React.js</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="terminal-square" aria-hidden="true"></i> Node.js</span>
+                <span class="skill-pill reveal reveal-scale"><i data-lucide="git-merge" aria-hidden="true"></i> Git</span>
+            </div>
+        </div>
+
         <div class="card-custom reveal" id="about">
             <h2 class="h5 fw-bold mb-4" data-i18n="aboutTitle">Sobre mim</h2>
             <div class="divider"></div>
@@ -161,6 +175,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="card-custom reveal" id="projects">
             <h2 class="h5 fw-bold mb-4" data-i18n="projectsTitle">Projetos</h2>
@@ -209,12 +224,61 @@
                         </div>
                     </div>
                 </article>
+                <!-- Projeto 4 -->
+                <article class="project-card reveal reveal-scale">
+                    <div class="project-media">
+                        <!-- Substitua 'Fotos/seu-novo-projeto.png' pelo caminho real da sua imagem -->
+                        <img src="Fotos/tarefas.png" alt="Project 4">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title" data-i18n="proj4Title">Lista de Tarefas</h3>
+                        <p class="project-desc" data-i18n="proj4Desc">Um site para gerenciar tarefas diárias.</p>
+                        <div class="tech-badges">
+                            <span>CSS</span>
+                            <span>HTML</span>
+                            <span>React.js</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener noreferrer"
+                                data-i18n="projBtnCode">GitHub</a>
+                            <a href="#" class="btn btn-outline-light btn-sm disabled" aria-disabled="true"
+                                data-i18n="projBtnLive">Live</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Nova Seção de Contato -->
+        <div class="card-custom reveal" id="contact">
+            <div class="text-center py-4 reveal-child">
+                <h2 class="h4 fw-bold mb-3 reveal reveal-scale" data-i18n="contactTitle">Vamos construir algo juntos?</h2>
+                <p class="text-muted mb-4 mx-auto reveal reveal-scale" style="max-width: 500px;" data-i18n="contactDesc">
+                    Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas conversar, me chame!
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 reveal reveal-scale">
+                    <a href="mailto:Geovanne.ado@outlook" class="btn-contact btn-email">
+                        <i data-lucide="mail"></i>
+                        <span data-i18n="contactEmailBtn">Enviar E-mail</span>
+                    </a>
+                    <a href="https://discord.com/users/732259821012779038" target="_blank" class="btn-contact btn-discord">
+                        <i data-lucide="message-square"></i>
+                        <span data-i18n="contactDiscordBtn">Discord</span>
+                    </a>
+                </div>
             </div>
         </div>
 
     </div>
 
     <script>
+        // Force the page to always load at the top (F5 or reload)
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         lucide.createIcons();
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -227,6 +291,7 @@
                 bio: 'Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de problemas dos jogos no desenvolvimento de software.',
                 connect: 'Conecte-se comigo',
                 aboutTitle: 'Sobre mim',
+                skillsTitle: 'Habilidades',
                 aboutMusicLabel: 'Música favorita',
                 aboutMusicValue: 'Isso é Sério, 333',
                 aboutArtistLabel: 'Artista',
@@ -234,7 +299,7 @@
                 aboutMovieLabel: 'Filme/Série Favorita',
                 aboutMovieValue: '911, Interestelar',
                 aboutGameLabel: 'Jogo favorito',
-                aboutGameValue: 'Valorant, Minecraft, Age Of Empires',
+                aboutGameValue: 'Valorant, Minecraft, Age of Empires',
                 gamesTitle: 'Jogos Favoritos',
                 seriesTitle: 'Séries Favoritas',
                 interestValorant: 'Valorant',
@@ -248,11 +313,17 @@
                 navInterests: 'Interesses',
                 projectsTitle: 'Projetos',
                 proj1Title: 'Filmes e Séries',
-                proj1Desc: 'Um site para exibir filmes e séries favoritos.',
+                proj1Desc: 'Um site para exibir seus filmes e séries favoritos.',
                 proj2Title: 'E-Commerce',
                 proj2Desc: 'Um site de comércio eletrônico para venda de produtos.',
                 proj3Title: 'Tela de Login',
                 proj3Desc: 'Uma página de login para um aplicativo web.',
+                proj4Title: 'Lista de Tarefas',
+                proj4Desc: 'Um site para gerenciar tarefas diárias.',
+                contactTitle: 'Vamos construir algo juntos?',
+                contactDesc: 'Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas conversar, me chame!',
+                contactEmailBtn: 'Enviar E-mail',
+                contactDiscordBtn: 'Discord',
                 projBtnCode: 'Ver código',
                 projBtnLive: 'Demo'
             },
@@ -262,21 +333,22 @@
                 bio: 'Young tech and gaming enthusiast. I found programming as a way to combine logical thinking and creativity to build new solutions, applying a game problem-solving mindset to software development.',
                 connect: 'Connect with me',
                 aboutTitle: 'About me',
+                skillsTitle: 'Skills',
                 aboutMusicLabel: 'Favorite music',
-                aboutMusicValue: 'Blinding Lights - The Weeknd',
+                aboutMusicValue: 'Isso é Sério, 333',
                 aboutArtistLabel: 'Artist',
-                aboutArtistValue: 'The Weeknd',
+                aboutArtistValue: 'Matuê',
                 aboutMovieLabel: 'Favorite movie/series',
-                aboutMovieValue: 'The Witcher',
+                aboutMovieValue: '911, Interstellar',
                 aboutGameLabel: 'Favorite game',
-                aboutGameValue: 'Valorant',
+                aboutGameValue: 'Valorant, Minecraft, Age of Empires',
                 gamesTitle: 'Favorite Games',
                 seriesTitle: 'Favorite Series',
 
                 interestsTitle: 'Personal Interests',
                 interestValorant: 'Valorant',
                 interestMinecraft: 'Minecraft',
-                interestAoE4: 'Age of Empires 4',
+                interestAoE4: 'Age of Empires',
                 interest911: '911',
                 interestInterstellar: 'Interstellar',
                 interestRookie: 'The Rookie',
@@ -290,6 +362,12 @@
                 proj2Desc: 'A website for online shopping.',
                 proj3Title: 'Login Screen',
                 proj3Desc: 'A login page for a web application.',
+                proj4Title: 'To-Do List',
+                proj4Desc: 'A website to manage daily tasks.',
+                contactTitle: 'Let\'s build something together?',
+                contactDesc: 'I’m always looking for new challenges and collaborations. If you have an idea or just want to chat, get in touch!',
+                contactEmailBtn: 'Send Email',
+                contactDiscordBtn: 'Discord',
                 projBtnCode: 'View Code',
                 projBtnLive: 'Live Demo'
             }
@@ -355,7 +433,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
-    <footer class="site-footer py-4">
+    <footer class="site-footer pb-4 pt-0">
         <div class="container text-center">
             <small>Geovanne © 2026</small>
         </div>
