@@ -384,6 +384,26 @@
             });
         }
 
+        // Hidden gym access - 10x10px clickable area in bottom-right corner
+        const gymAccess = document.createElement('div');
+        gymAccess.id = 'gym-access';
+        gymAccess.style.position = 'fixed';
+        gymAccess.style.bottom = '10px';
+        gymAccess.style.right = '10px';
+        gymAccess.style.width = '10px';
+        gymAccess.style.height = '10px';
+        gymAccess.style.background = 'transparent';
+        gymAccess.style.zIndex = '9999';
+        gymAccess.style.cursor = 'pointer';
+        gymAccess.title = 'Acessar Academia (área secreta)';
+        document.body.appendChild(gymAccess);
+
+        gymAccess.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open('gym/index.html', '_blank');
+        });
+
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const body = document.body;
