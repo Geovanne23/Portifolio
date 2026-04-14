@@ -384,24 +384,200 @@
             });
         }
 
-        // Hidden gym access - 10x10px clickable area in bottom-right corner
-        const gymAccess = document.createElement('div');
-        gymAccess.id = 'gym-access';
-        gymAccess.style.position = 'fixed';
-        gymAccess.style.bottom = '10px';
-        gymAccess.style.right = '10px';
-        gymAccess.style.width = '10px';
-        gymAccess.style.height = '10px';
-        gymAccess.style.background = 'transparent';
-        gymAccess.style.zIndex = '9999';
-        gymAccess.style.cursor = 'pointer';
-        gymAccess.title = 'Acessar Academia (área secreta)';
-        document.body.appendChild(gymAccess);
+        // ===== SECRET MENU =====
+        // Inject styles
+        const secretStyles = document.createElement('style');
+        secretStyles.textContent = `
+          #secret-trigger {
+            position: fixed; bottom: 8px; right: 8px;
+            width: 14px; height: 14px;
+            background: transparent; border: none;
+            z-index: 10000; cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+          }
+          #secret-menu-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10001;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 1rem;
+          }
+          #secret-menu-overlay.open {
+            opacity: 1; visibility: visible;
+          }
+          #secret-menu-overlay.open .secret-menu-card {
+            transform: translateY(0) scale(1); opacity: 1;
+          }
+          .secret-menu-card {
+            background: linear-gradient(160deg, #1a1a2e 0%, #0e0e1a 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem 1.5rem 1.75rem;
+            max-width: 360px; width: 100%;
+            transform: translateY(20px) scale(0.95); opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), opacity 0.3s ease;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            position: relative; overflow: hidden;
+          }
+          .secret-menu-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #e63946, #ff6b35, #e63946);
+            background-size: 200% 100%;
+            animation: secret-stripe 3s linear infinite;
+          }
+          @keyframes secret-stripe { 0%{background-position:0 0}100%{background-position:200% 0} }
+          .secret-menu-header {
+            text-align: center; margin-bottom: 1.5rem;
+          }
+          .secret-menu-icon {
+            font-size: 2rem; margin-bottom: 0.5rem;
+          }
+          .secret-menu-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem; font-weight: 800;
+            color: #f2f2f8; letter-spacing: -0.3px;
+          }
+          .secret-menu-subtitle {
+            font-size: 0.78rem; color: #9898b0; margin-top: 4px;
+          }
+          .secret-menu-options {
+            display: flex; flex-direction: column; gap: 10px;
+          }
+          .secret-option {
+            display: flex; align-items: center; gap: 14px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none; color: #f2f2f8;
+            cursor: pointer; transition: all 0.25s ease;
+            position: relative; overflow: hidden;
+          }
+          .secret-option:hover {
+            background: rgba(230,57,70,0.1);
+            border-color: rgba(230,57,70,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            color: #f2f2f8;
+            text-decoration: none;
+          }
+          .secret-option:active { transform: scale(0.97); }
+          .secret-option-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+          }
+          .secret-option-icon.gym {
+            background: linear-gradient(135deg, rgba(230,57,70,0.2), rgba(255,107,53,0.15));
+            border: 1px solid rgba(230,57,70,0.25);
+            color: #e63946;
+          }
+          .secret-option-icon.soon {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #58587a;
+          }
+          .secret-option-info { flex: 1; min-width: 0; }
+          .secret-option-name {
+            font-size: 0.92rem; font-weight: 700; line-height: 1.3;
+          }
+          .secret-option-desc {
+            font-size: 0.72rem; color: #9898b0; margin-top: 2px;
+          }
+          .secret-option-arrow {
+            color: #58587a; font-size: 0.9rem;
+            transition: transform 0.2s, color 0.2s;
+          }
+          .secret-option:hover .secret-option-arrow {
+            color: #e63946; transform: translateX(3px);
+          }
+          .secret-option.disabled {
+            opacity: 0.45; cursor: not-allowed; pointer-events: none;
+          }
+          .soon-badge {
+            font-size: 0.58rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            padding: 2px 8px; border-radius: 5px;
+            background: rgba(245,158,11,0.12);
+            border: 1px solid rgba(245,158,11,0.2);
+            color: #f59e0b; margin-left: 6px;
+          }
+          .secret-close {
+            position: absolute; top: 12px; right: 14px;
+            width: 30px; height: 30px;
+            border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: #9898b0; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.2s;
+          }
+          .secret-close:hover {
+            background: rgba(230,57,70,0.15);
+            border-color: rgba(230,57,70,0.3);
+            color: #e63946;
+          }
+        `;
+        document.head.appendChild(secretStyles);
 
-        gymAccess.addEventListener('click', function(e) {
+        // Trigger button (invisible 14x14 corner)
+        const secretTrigger = document.createElement('button');
+        secretTrigger.id = 'secret-trigger';
+        secretTrigger.title = 'Área Secreta';
+        secretTrigger.setAttribute('aria-label', 'Abrir menu secreto');
+        document.body.appendChild(secretTrigger);
+
+        // Menu overlay
+        const secretOverlay = document.createElement('div');
+        secretOverlay.id = 'secret-menu-overlay';
+        secretOverlay.innerHTML = `
+          <div class="secret-menu-card">
+            <button class="secret-close" id="secret-close" aria-label="Fechar">✕</button>
+            <div class="secret-menu-header">
+              <div class="secret-menu-icon">🔒</div>
+              <div class="secret-menu-title">Área Secreta</div>
+              <div class="secret-menu-subtitle">Conteúdo exclusivo</div>
+            </div>
+            <div class="secret-menu-options">
+              <a href="gym/index.html" target="_blank" class="secret-option" id="secret-gym">
+                <div class="secret-option-icon gym">💪</div>
+                <div class="secret-option-info">
+                  <div class="secret-option-name">Academia</div>
+                  <div class="secret-option-desc">Plano de treino · Além da Genética</div>
+                </div>
+                <span class="secret-option-arrow">→</span>
+              </a>
+              <div class="secret-option disabled">
+                <div class="secret-option-icon soon">✨</div>
+                <div class="secret-option-info">
+                  <div class="secret-option-name">Em Breve <span class="soon-badge">Soon</span></div>
+                  <div class="secret-option-desc">Novo conteúdo em desenvolvimento</div>
+                </div>
+                <span class="secret-option-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(secretOverlay);
+
+        // Open / close logic
+        secretTrigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            window.open('gym/index.html', '_blank');
+            secretOverlay.classList.add('open');
+        });
+        document.getElementById('secret-close').addEventListener('click', () => {
+            secretOverlay.classList.remove('open');
+        });
+        secretOverlay.addEventListener('click', (e) => {
+            if (e.target === secretOverlay) secretOverlay.classList.remove('open');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') secretOverlay.classList.remove('open');
         });
 
         const themeToggle = document.getElementById('theme-toggle');
