@@ -22,7 +22,18 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
-    let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+    const urlPath = req.url.split('?')[0];
+    
+    let filePath;
+    if (urlPath === '/niver' || urlPath === '/niver/') {
+        filePath = path.join(__dirname, 'niver-built', 'index.html');
+    } else if (urlPath.startsWith('/niver/')) {
+        const relativePath = urlPath.slice(7); // Remove '/niver/'
+        filePath = path.join(__dirname, 'niver-built', relativePath);
+    } else {
+        filePath = path.join(__dirname, urlPath === '/' ? 'index.html' : urlPath);
+    }
+
     const ext = path.extname(filePath).toLowerCase();
     const contentType = mimeTypes[ext] || 'application/octet-stream';
 
