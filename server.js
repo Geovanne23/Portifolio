@@ -6,28 +6,28 @@ const PORT = 3000;
 
 const mimeTypes = {
     '.html': 'text/html',
-    '.css':  'text/css',
-    '.js':   'text/javascript',
-    '.png':  'image/png',
-    '.jpg':  'image/jpeg',
+    '.css': 'text/css',
+    '.js': 'text/javascript',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
     '.jfif': 'image/jpeg',
-    '.gif':  'image/gif',
-    '.svg':  'image/svg+xml',
-    '.ico':  'image/x-icon',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.ico': 'image/x-icon',
     '.webp': 'image/webp',
-    '.mp3':  'audio/mpeg',
-    '.mp4':  'video/mp4',
+    '.mp3': 'audio/mpeg',
+    '.mp4': 'video/mp4',
     '.woff': 'font/woff',
     '.woff2': 'font/woff2',
 };
 
 const server = http.createServer((req, res) => {
     let requestUrl = decodeURI(req.url);
-    let filePath = '.' + requestUrl.split('?')[0]; 
-    
+    let filePath = '.' + requestUrl.split('?')[0];
+
     if (filePath === './') {
-        filePath = './index.html';
+        filePath = './in    dex.html';
     }
 
     // Sempre buscar os arquivos na pasta niver-built/
