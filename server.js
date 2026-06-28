@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const mimeTypes = {
     '.html': 'text/html',
@@ -27,7 +27,7 @@ const server = http.createServer((req, res) => {
     let filePath = '.' + requestUrl.split('?')[0];
 
     if (filePath === './') {
-        filePath = './in    dex.html';
+        filePath = './index.html';
     }
 
     // Sempre buscar os arquivos na pasta niver-built/
