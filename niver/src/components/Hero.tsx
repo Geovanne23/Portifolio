@@ -12,8 +12,8 @@ export function Hero() {
       <div className="glass rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
         {/* Background ambient light */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-[100px]" style={{ background: "rgba(59,130,246,0.2)" }} />
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full blur-[100px]" style={{ background: "rgba(99,102,241,0.2)" }} />
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%)" }} />
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)" }} />
         </div>
 
         {/* Left Content */}
@@ -44,7 +44,7 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-gray-400 text-lg max-w-xl leading-relaxed"
           >
-            Caso queira me presentear, aqui está minha lista de desejos. Todos os itens abaixo são coisas que gostaria muito de ganhar.
+            Se você chegou até aqui, é porque deseja tornar meu dia ainda mais especial! Separei abaixo algumas ideias de mimos que eu adoraria ganhar. Fique à vontade para escolher o que preferir!
           </motion.p>
         </div>
 
@@ -55,13 +55,13 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
           className="flex flex-col items-center justify-center relative"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2" style={{ background: "linear-gradient(to top right, #3B82F6, #6366F1)" }}>
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full p-2" style={{ background: "linear-gradient(to top right, #3B82F6, #6366F1)" }}>
             <div className="w-full h-full rounded-full bg-[#080B12] flex items-center justify-center overflow-hidden border-4 border-transparent">
               <div className="w-full h-full flex items-center justify-center bg-[#111827]">
-                <Gift className="w-32 h-32 text-blue-500 opacity-50" />
+                <Gift className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-blue-500 opacity-50" />
               </div>
             </div>
-            <div className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(59,130,246,0.5)] pointer-events-none" />
+            <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: "0 0 40px rgba(59,130,246,0.5)" }} />
           </div>
 
           <motion.div

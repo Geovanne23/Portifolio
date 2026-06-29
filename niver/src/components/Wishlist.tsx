@@ -14,8 +14,8 @@ export function Wishlist() {
         viewport={{ once: true }}
         className="mb-10 text-center md:text-left"
       >
-        <h2 className="text-3xl font-bold text-white mb-2">Minha Lista de Presentes</h2>
-        <p className="text-gray-400">Aqui estão os itens que escolhi com carinho.</p>
+        <h2 className="text-3xl font-bold text-white mb-2">Sugestões de Presentes</h2>
+        <p className="text-gray-400">Sinta-se à vontade para escolher a opção que mais gostar.</p>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

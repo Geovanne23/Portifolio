@@ -11,9 +11,9 @@ export const products = [
   },
   {
     id: 2,
-    name: "SSD 256 GB",
+    name: "SSD 256 GB (Apenas SATA)",
     category: "Tecnologia",
-    desc: "SSD SATA ou NVMe de 256 GB para melhorar o desempenho do computador.",
+    desc: "SSD de 256 GB. ATENÇÃO: Tem que ser somente o SSD SATA (não serve NVMe).",
     price: "R$ 150+",
     color: "bg-blue-500/20 text-blue-400",
     image: "/ssd.jpg",

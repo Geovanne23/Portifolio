@@ -42,15 +42,15 @@ export function CountdownFooter() {
         className="glass rounded-3xl p-6 sm:p-10 md:p-16 text-center relative overflow-hidden"
       >
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[100px] pointer-events-none"
-          style={{ background: "rgba(59,130,246,0.1)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] sm:w-[600px] aspect-square rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)" }}
         />
 
         <div className="relative z-10 flex flex-col items-center">
           <Clock className="w-12 h-12 text-blue-400 mb-6 animate-pulse" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Contagem Regressiva</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">O grande dia está chegando!</h2>
           <p className="text-gray-400 mb-8 px-2 text-sm md:text-base">
-            Faltam poucos dias para o meu aniversário! (10/07/2026)
+            Contagem regressiva para o meu aniversário em 10 de Julho de 2026. Falta pouco!
           </p>
 
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6">

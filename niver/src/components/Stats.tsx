@@ -78,7 +78,7 @@ export function Stats() {
             />
 
             <div
-              className="absolute -inset-2 rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 -z-10"
+              className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 -z-10"
               style={{ background: `radial-gradient(ellipse, rgba(${stat.glow},0.5), transparent 70%)` }}
             />
 
