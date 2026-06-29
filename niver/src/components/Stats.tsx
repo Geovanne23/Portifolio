@@ -82,22 +82,22 @@ export function Stats() {
               style={{ background: `radial-gradient(ellipse, rgba(${stat.glow},0.5), transparent 70%)` }}
             />
 
-            <div className="relative z-10 p-6 flex flex-col justify-between h-full">
+            <div className="relative z-10 p-5 sm:p-6 flex flex-row sm:flex-col items-center sm:items-start sm:justify-between h-full gap-5 sm:gap-0">
               <div
                 className="absolute top-0 left-0 right-0 h-[1.5px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: `linear-gradient(90deg, transparent, ${stat.from}, ${stat.to}, transparent)` }}
               />
 
-              <div className="mb-6 relative">
+              <div className="mb-0 sm:mb-6 shrink-0 relative">
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${stat.bg} border border-white/10 relative overflow-hidden`}>
                   <stat.icon className={`w-7 h-7 ${stat.color} relative z-10`} />
                 </div>
               </div>
 
-              <div>
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-[0.15em] mb-2">{stat.label}</p>
+              <div className="flex-1 min-w-0">
+                <p className="text-gray-500 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-1 sm:mb-2 truncate">{stat.label}</p>
                 <h3
-                  className="text-5xl font-black leading-none tracking-tight transition-transform duration-300 group-hover:scale-105 origin-left"
+                  className="text-4xl sm:text-5xl font-black leading-none tracking-tight transition-transform duration-300 group-hover:scale-105 origin-left"
                   style={{
                     background: `linear-gradient(135deg, ${stat.from}, ${stat.to})`,
                     WebkitBackgroundClip: "text",
@@ -108,7 +108,7 @@ export function Stats() {
                   {stat.value}
                 </h3>
                 {stat.desc && (
-                  <p className="text-xs text-gray-600 mt-3 leading-relaxed">{stat.desc}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-600 mt-1 sm:mt-3 leading-relaxed truncate sm:whitespace-normal">{stat.desc}</p>
                 )}
               </div>
             </div>

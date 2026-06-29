@@ -52,7 +52,7 @@ export function Wishlist() {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-700"
                   />
                   <span
                     className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md border border-white/10 ${product.color}`}

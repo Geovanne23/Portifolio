@@ -32,10 +32,9 @@ export function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight"
+            className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] sm:leading-tight"
           >
-            Obrigado por fazer parte <br className="hidden lg:block" />
-            desse momento! <span role="img" aria-label="heart">❤️</span>
+            Obrigado por fazer parte desse momento! <span role="img" aria-label="heart" className="inline-block">❤️</span>
           </motion.h1>
 
           <motion.p
@@ -55,10 +54,10 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
           className="flex flex-col items-center justify-center relative"
         >
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full p-2" style={{ background: "linear-gradient(to top right, #3B82F6, #6366F1)" }}>
-            <div className="w-full h-full rounded-full bg-[#080B12] flex items-center justify-center overflow-hidden border-4 border-transparent">
+          <div className="relative w-36 h-36 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full p-1.5 sm:p-2" style={{ background: "linear-gradient(to top right, #3B82F6, #6366F1)" }}>
+            <div className="w-full h-full rounded-full bg-[#080B12] flex items-center justify-center overflow-hidden border-[3px] sm:border-4 border-transparent">
               <div className="w-full h-full flex items-center justify-center bg-[#111827]">
-                <Gift className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-blue-500 opacity-50" />
+                <Gift className="w-14 h-14 sm:w-24 sm:h-24 md:w-32 md:h-32 text-blue-500 opacity-50" />
               </div>
             </div>
             <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: "0 0 40px rgba(59,130,246,0.5)" }} />
