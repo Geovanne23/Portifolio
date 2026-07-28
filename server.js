@@ -2,41 +2,59 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const mimeTypes = {
     '.html': 'text/html',
-    '.css':  'text/css',
-    '.js':   'text/javascript',
-    '.png':  'image/png',
-    '.jpg':  'image/jpeg',
+    '.css': 'text/css',
+    '.js': 'text/javascript',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
-    '.gif':  'image/gif',
-    '.svg':  'image/svg+xml',
-    '.ico':  'image/x-icon',
+    '.jfif': 'image/jpeg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.ico': 'image/x-icon',
     '.webp': 'image/webp',
-    '.mp3':  'audio/mpeg',
-    '.mp4':  'video/mp4',
+    '.mp3': 'audio/mpeg',
+    '.mp4': 'video/mp4',
     '.woff': 'font/woff',
     '.woff2': 'font/woff2',
 };
 
 const server = http.createServer((req, res) => {
-    let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
-    const ext = path.extname(filePath).toLowerCase();
-    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    let requestUrl = decodeURI(req.url);
+    let filePath = '.' + requestUrl.split('?')[0];
 
-    fs.readFile(filePath, (err, data) => {
+    if (filePath === './') {
+        filePath = './index.html';
+    }
+
+    // Sempre buscar os arquivos na pasta niver-built/
+    filePath = './niver-built/' + filePath.replace('./', '');
+
+    const extname = String(path.extname(filePath)).toLowerCase();
+    const contentType = mimeTypes[extname] || 'application/octet-stream';
+
+    fs.readFile(filePath, (err, content) => {
         if (err) {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('404 - Arquivo não encontrado');
-            return;
+            if (err.code == 'ENOENT') {
+                res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end('<h1>404 - Arquivo não encontrado</h1><p>O arquivo ' + filePath + ' não existe.</p>', 'utf-8');
+            } else {
+                res.writeHead(500);
+                res.end('500 - Erro interno do servidor: ' + err.code + ' ..\n');
+            }
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
         }
-        res.writeHead(200, { 'Content-Type': contentType });
-        res.end(data);
     });
 });
 
 server.listen(PORT, () => {
-    console.log(`✅ Servidor rodando em: http://localhost:${PORT}`);
+    console.log(`========================================`);
+    console.log(`🚀 Servidor rodando na porta ${PORT}`);
+    console.log(`🔗 Acesse o site em: http://localhost:${PORT}/`);
+    console.log(`========================================`);
 });
