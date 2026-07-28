@@ -66,8 +66,41 @@
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar Tema">
                     <i data-lucide="moon" id="theme-icon"></i>
                 </button>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle-btn" aria-label="Abrir Menu">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
             </div>
         </nav>
+    </div>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-drawer">
+            <div class="mobile-menu-header">
+                <div class="nav-brand">
+                    <span class="brand-dot"></span>
+                    <span>Geovanne</span>
+                </div>
+                <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Fechar Menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#hero" class="mobile-nav-item" data-i18n="navHome">Início</a></li>
+                <li><a href="#skills" class="mobile-nav-item" data-i18n="navSkills">Habilidades</a></li>
+                <li><a href="#projects" class="mobile-nav-item" data-i18n="navProjects">Projetos</a></li>
+                <li><a href="#about" class="mobile-nav-item" data-i18n="navAbout">Sobre</a></li>
+                <li><a href="#contact" class="mobile-nav-item" data-i18n="navContact">Contato</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="status-pill">
+                    <span class="status-dot-pulse"></span>
+                    <span data-i18n="statusText">Disponível</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content Container -->
@@ -459,7 +492,7 @@
                     </button>
                 </div>
 
-                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                <div class="contact-cta-buttons">
                     <a href="mailto:Geovanne.ado@outlook.com" class="btn-primary-purple">
                         <i data-lucide="send" width="18" height="18"></i>
                         <span data-i18n="contactEmailBtn">Enviar E-mail</span>
@@ -472,8 +505,6 @@
                 </div>
             </div>
         </section>
-
-    </main>
 
     </main>
 
@@ -700,11 +731,12 @@
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Smart Auto-Hide Floating Navbar on Scroll
+        // Smart Auto-Hide Floating Navbar on Scroll (desabilitado quando menu mobile estiver aberto)
         let lastScrollY = window.scrollY;
         const headerWrapper = document.querySelector('.site-header-wrapper');
 
         window.addEventListener('scroll', () => {
+            if (document.body.classList.contains('mobile-menu-open')) return;
             const currentScrollY = window.scrollY;
             if (currentScrollY > lastScrollY && currentScrollY > 80) {
                 // Scrolling DOWN -> Hide navbar
@@ -715,6 +747,44 @@
             }
             lastScrollY = currentScrollY;
         }, { passive: true });
+
+        // ===== MOBILE MENU LOGIC =====
+        const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileCloseBtn = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.add('open');
+            document.body.classList.add('mobile-menu-open');
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('open');
+            document.body.classList.remove('mobile-menu-open');
+        }
+
+        if (mobileToggleBtn) {
+            mobileToggleBtn.addEventListener('click', openMobileMenu);
+        }
+
+        if (mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', (e) => {
+                if (e.target === mobileMenuOverlay) {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
 
         // ===== SECRET MENU LOGIC =====
         const secretStyles = document.createElement('style');
