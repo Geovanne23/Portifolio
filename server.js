@@ -24,14 +24,12 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
     let requestUrl = decodeURI(req.url);
-    let filePath = '.' + requestUrl.split('?')[0];
-
-    if (filePath === './') {
-        filePath = './index.html';
+    let cleanPath = requestUrl.split('?')[0];
+    if (cleanPath === '/' || cleanPath === '') {
+        cleanPath = '/index.html';
     }
 
-    // Sempre buscar os arquivos na pasta niver-built/
-    filePath = './niver-built/' + filePath.replace('./', '');
+    const filePath = path.join(__dirname, cleanPath);
 
     const extname = String(path.extname(filePath)).toLowerCase();
     const contentType = mimeTypes[extname] || 'application/octet-stream';
