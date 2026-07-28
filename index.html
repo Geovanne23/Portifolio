@@ -5,367 +5,497 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Geovanne - Desenvolvedor apaixonado por tecnologia e games. Confira meu portfólio, projetos e interesses pessoais.">
-    <meta name="theme-color" content="#03050a">
-    <meta property="og:title" content="Geovanne - Portifólio">
+        content="Geovanne - Desenvolvedor Web e apaixonado por tecnologia e games. Confira meu portfólio, projetos e interesses.">
+    <meta name="theme-color" content="#030712">
+    <meta property="og:title" content="Geovanne • Portfólio">
     <meta property="og:description"
-        content="Jovem entusiasta de tecnologia. Encontrei na programação o meio de unir raciocínio lógico e criatividade.">
+        content="Desenvolvedor Web. Unindo raciocínio lógico, criatividade e paixão por tecnologia para criar aplicações incríveis.">
     <meta property="og:type" content="website">
-    <title>Geovanne • Portifólio</title>
+    <title>Geovanne • Portfólio</title>
 
     <link rel="shortcut icon" href="Fotos/star_transparent_v2.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Critical CSS for immediate paint */
-        :root { --bg-base: #03050a; --text-color: #f8fafc; }
-        body.light-theme { --bg-base: #f8fafc; --text-color: #0f172a; }
-        html, body { background: var(--bg-base); color: var(--text-color); margin: 0; font-family: 'Inter', sans-serif; min-height: 100vh; }
-        .bg-animation { position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; z-index: -1; background: var(--bg-base); }
-        .reveal { opacity: 0; }
-    </style>
 </head>
 
 <body>
 
-    <div class="top-actions">
-        <div class="lang-switch" id="lang-switch-container" aria-label="Language selector" data-active="pt">
-            <div class="switch-pill"></div>
-            <button class="lang-btn" data-lang="pt" title="Português">
-                <svg viewBox="0 0 64 64" width="20" height="20">
-                    <circle cx="32" cy="32" r="32" fill="#009739"/>
-                    <path d="M32 12L52 32L32 52L12 32Z" fill="#fedd00"/>
-                    <circle cx="32" cy="32" r="12" fill="#012169"/>
-                    <path d="M20 32c0 0 6-4 12-4s12 4 12 4" stroke="white" stroke-width="1.5" fill="none"/>
-                </svg>
-                <span>PT</span>
-            </button>
-            <button class="lang-btn" data-lang="en" title="English">
-                <svg viewBox="0 0 64 64" width="20" height="20">
-                    <clipPath id="circleMask">
-                        <circle cx="32" cy="32" r="32"/>
-                    </clipPath>
-                    <g clip-path="url(#circleMask)">
-                        <rect width="64" height="64" fill="#f0f0f0"/>
-                        <path d="M0 6h64v6H0zM0 18h64v6H0zM0 30h64v6H0zM0 42h64v6H0zM0 54h64v6H0z" fill="#b22234"/>
-                        <rect width="32" height="32" fill="#3c3b6e"/>
-                        <circle cx="8" cy="8" r="1.5" fill="white"/>
-                        <circle cx="16" cy="8" r="1.5" fill="white"/>
-                        <circle cx="24" cy="8" r="1.5" fill="white"/>
-                        <circle cx="12" cy="16" r="1.5" fill="white"/>
-                        <circle cx="20" cy="16" r="1.5" fill="white"/>
-                        <circle cx="8" cy="24" r="1.5" fill="white"/>
-                        <circle cx="16" cy="24" r="1.5" fill="white"/>
-                        <circle cx="24" cy="24" r="1.5" fill="white"/>
-                    </g>
-                </svg>
-                <span>EN</span>
-            </button>
-        </div>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar tema">
-            <i data-lucide="moon" id="theme-icon"></i>
-        </button>
+    <!-- Ambient Glow Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Floating Glass Header Navbar -->
+    <div class="site-header-wrapper">
+        <nav class="site-navbar" role="navigation" aria-label="Navegação Principal">
+            <a href="#" class="nav-brand">
+                <span class="brand-dot"></span>
+                <span>Geovanne</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link-item" data-i18n="navHome">Início</a></li>
+                <li><a href="#skills" class="nav-link-item" data-i18n="navSkills">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link-item" data-i18n="navProjects">Projetos</a></li>
+                <li><a href="#about" class="nav-link-item" data-i18n="navAbout">Sobre</a></li>
+                <li><a href="#contact" class="nav-link-item" data-i18n="navContact">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="status-pill" title="Status atual">
+                    <span class="status-dot-pulse"></span>
+                    <span data-i18n="statusText">Disponível</span>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="lang-switch-pill" id="lang-switch-container" data-active="pt">
+                    <button class="lang-btn active" data-lang="pt" title="Português">PT</button>
+                    <button class="lang-btn" data-lang="en" title="English">EN</button>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Trocar Tema">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </nav>
     </div>
 
-    <div class="bg-animation"></div>
-    <header class="site-header" role="banner">
-    </header>
+    <!-- Main Content Container -->
+    <main class="site-container">
 
-    <div class="container d-flex flex-column align-items-center pt-5 pb-0 gap-5">
-
-        <div class="card-custom reveal reveal-left">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="tag-name">
-                        <div class="dot"></div> Geovanne
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-grid">
+                <div class="hero-text-content reveal">
+                    <div class="hero-tag">
+                        <i data-lucide="zap" width="16" height="16"></i>
+                        <span data-i18n="heroTag">Desenvolvedor & Entusiasta Tech</span>
                     </div>
-                    <h1 class="display-4 fw-bold greeting-title">
-                        <span class="greeting-prefix" data-i18n="greetingPrefix">Olá, eu sou</span>
-                        <span class="greeting-name" data-i18n="greetingName">Geovanne</span>
+
+                    <h1 class="hero-title">
+                        <span data-i18n="greetingPrefix">Olá, eu sou</span> <span class="gradient-text"
+                            data-i18n="greetingName">Geovanne</span>
                     </h1>
-                    <p class="bio" data-i18n="bio">Jovem entusiasta de tecnologia e cultura gamer. Encontrei na
-                        programação o meio de unir
+
+                    <p class="hero-bio" data-i18n="bio">
+                        Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir
                         raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de
-                        problemas dos jogos no desenvolvimento de software.</p>
-                    <div class="divider"></div>
-                    <p class="social-title" data-i18n="connect">Conecte-se comigo</p>
-                    <div class="row g-2 reveal-child">
-                        <div class="col-sm-4 reveal reveal-scale">
-                            <a href="https://www.instagram.com/oliveirahxxs_/" class="social-btn w-100" target="_blank"
-                                rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18"
-                                    class="icon-instagram">
-                                    <path fill="currentColor"
-                                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        problemas no desenvolvimento de software.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn-primary-purple">
+                            <span data-i18n="ctaProjects">Ver Projetos</span>
+                            <i data-lucide="arrow-right" width="18" height="18"></i>
+                        </a>
+                        <a href="#contact" class="btn-glass">
+                            <span data-i18n="ctaContact">Contato</span>
+                            <i data-lucide="mail" width="18" height="18"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social Grid com Ícones Inline SVG 100% visíveis -->
+                    <div class="social-grid">
+                        <a href="https://www.instagram.com/oliveirahxxs_/" target="_blank" rel="noopener noreferrer"
+                            class="social-pill-card">
+                            <div class="social-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                                 </svg>
-                                <div class="social-info">
-                                    <strong>Instagram</strong>
-                                    <span>@oliveirahxxs_</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-4 reveal reveal-scale">
-                            <a href="https://discord.com/users/732259821012779038" class="social-btn w-100"
-                                target="_blank" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" width="20"
-                                    height="20" class="icon-discord">
-                                    <path fill="currentColor"
+                            </div>
+                            <div class="social-details">
+                                <span class="social-name">Instagram</span>
+                                <span class="social-handle">@oliveirahxxs_</span>
+                            </div>
+                        </a>
+
+                        <a href="https://discord.com/users/732259821012779038" target="_blank" rel="noopener noreferrer"
+                            class="social-pill-card">
+                            <div class="social-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 127.14 96.36" fill="currentColor">
+                                    <path
                                         d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.71,32.65-1.82,56.63.4,80.21a105.73,105.73,0,0,0,32.17,16.15,77.7,77.7,0,0,0,6.89-11.11,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.72-27.37-4.71-51.15-19.45-72.14ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.07,65.69,84.69,65.69Z" />
                                 </svg>
-                                <div class="social-info">
-                                    <strong>Discord</strong>
-                                    <span>@Capitaum_</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-4 reveal reveal-scale">
-                            <a href="https://github.com/Geovanne23/Geovanne23" class="social-btn w-100" target="_blank"
-                                rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20"
-                                    class="icon-github">
-                                    <path fill="currentColor"
-                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.5 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-41.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-                                </svg>
-                                <div class="social-info">
-                                    <strong>GitHub</strong>
-                                    <span>Geovanne23</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-4 reveal reveal-scale">
-                            <a href="https://linkedin.com/in/geovanne-augusto/?skipRedirect=true"
-                                class="social-btn w-100" target="_blank" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-linkedin" viewBox="0 0 16 16">
-                                    <path
-                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                                </svg>
-                                <div class="social-info">
-                                    <strong>LinkedIn</strong>
-                                    <span>Geovanne Augusto</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <div class="avatar-wrapper mx-auto">
-                        <img src="Fotos/perfil.jpg" alt="Avatar" class="avatar-img" decoding="async">
-                        <div class="status-badge">
-                            <div class="dot"></div><span class="status-name" data-i18n="statusName">GEOVANNE</span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="card-custom reveal" id="skills">
-            <h2 class="h5 fw-bold mb-4" data-i18n="skillsTitle">Habilidades</h2>
-            <div class="divider"></div>
-            <div class="skills-container reveal-child">
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="code" aria-hidden="true"></i> HTML5</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="file-json" aria-hidden="true"></i>
-                    CSS3</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="braces" aria-hidden="true"></i>
-                    JavaScript</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="atom" aria-hidden="true"></i>
-                    React.js</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="terminal-square" aria-hidden="true"></i>
-                    Node.js</span>
-                <span class="skill-pill reveal reveal-scale"><i data-lucide="git-merge" aria-hidden="true"></i>
-                    Git</span>
-            </div>
-        </div>
-
-        <div class="card-custom reveal" id="about">
-            <h2 class="h5 fw-bold mb-4" data-i18n="aboutTitle">Sobre mim</h2>
-            <div class="divider"></div>
-            <div class="about-grid reveal-child">
-                <div class="about-item reveal reveal-scale">
-                    <i data-lucide="music" class="about-icon" aria-hidden="true"></i>
-                    <div class="about-content">
-                        <strong data-i18n="aboutMusicLabel">Música favorita:</strong>
-                        <span data-i18n="aboutMusicValue">Blinding Lights - The Weeknd</span>
-                    </div>
-                </div>
-                <div class="about-item reveal reveal-scale">
-                    <i data-lucide="user" class="about-icon" aria-hidden="true"></i>
-                    <div class="about-content">
-                        <strong data-i18n="aboutArtistLabel">Artista:</strong>
-                        <span data-i18n="aboutArtistValue">Matuê</span>
-                    </div>
-                </div>
-                <div class="about-item reveal reveal-scale">
-                    <i data-lucide="film" class="about-icon" aria-hidden="true"></i>
-                    <div class="about-content">
-                        <strong data-i18n="aboutMovieLabel">Filme/Série Favorita:</strong>
-                        <span data-i18n="aboutMovieValue">911, Interestelar</span>
-                    </div>
-                </div>
-                <div class="about-item reveal reveal-scale">
-                    <i data-lucide="gamepad" class="about-icon" aria-hidden="true"></i>
-                    <div class="about-content">
-                        <strong data-i18n="aboutGameLabel">Jogo favorito:</strong>
-                        <span data-i18n="aboutGameValue">Valorant, Minecraft, </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card-custom reveal" id="projects">
-            <h2 class="h5 fw-bold mb-4" data-i18n="projectsTitle">Projetos</h2>
-            <div class="divider"></div>
-            <div class="projects-grid reveal-child">
-                <article class="project-card reveal reveal-scale">
-                    <div class="project-media"><img src="Fotos/Filme.png" alt="Filmes e Séries - thumbnail" loading="lazy" decoding="async"></div>
-                    <div class="project-body">
-                        <h3 class="project-title" data-i18n="proj1Title">Filmes e Series</h3>
-                        <p class="project-desc" data-i18n="proj1Desc">Um site para exibir filmes </p>
-                        <div class="tech-badges"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                        <div class="project-links">
-                            <a href="https://github.com/Geovanne23/Filmes-e-Series" class="btn btn-outline-light btn-sm"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
-                            <a href="https://geovanne23.github.io/Filmes-e-Series/" class="btn btn-outline-light btn-sm"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnLive">Live</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="project-card reveal reveal-scale">
-                    <div class="project-media"><img src="Fotos/Ecommerce.png" alt="Project 2" loading="lazy" decoding="async"></div>
-                    <div class="project-body">
-                        <h3 class="project-title" data-i18n="proj2Title">E-Commerce</h3>
-                        <p class="project-desc" data-i18n="proj2Desc">Um pequeno projeto de e-commerce para venda de
-                            produtos.</p>
-                        <div class="tech-badges"><span>React</span><span>JavaScript</span></div>
-                        <div class="project-links">
-                            <a href="https://github.com/Geovanne23/E-Commerce" class="btn btn-outline-light btn-sm"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
-                            <a href="#" class="btn btn-outline-light btn-sm disabled" aria-disabled="true"
-                                data-i18n="projBtnLive">Live</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="project-card reveal reveal-scale">
-                    <div class="project-media"><img src="Fotos/login.png" alt="Project 3" loading="lazy" decoding="async"></div>
-                    <div class="project-body">
-                        <h3 class="project-title" data-i18n="proj3Title">Tela de Login</h3>
-                        <p class="project-desc" data-i18n="proj3Desc">Uma página de login para um aplicativo web.</p>
-                        <div class="tech-badges"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
-                        <div class="project-links">
-                            <a href="https://github.com/Geovanne23/Login-Screen" class="btn btn-outline-light btn-sm"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnCode">GitHub</a>
-                            <a href="https://geovanne23.github.io/Login-Screen/" class="btn btn-outline-light btn-sm"
-                                target="_blank" rel="noopener noreferrer" data-i18n="projBtnLive">Live</a>
-                        </div>
-                    </div>
-                </article>
-                <!-- Projeto 4 -->
-                <article class="project-card reveal reveal-scale">
-                    <div class="project-media">
-                        <!-- Substitua 'Fotos/seu-novo-projeto.png' pelo caminho real da sua imagem -->
-                        <img src="Fotos/tarefas.png" alt="Project 4" loading="lazy" decoding="async">
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title" data-i18n="proj4Title">Lista de Tarefas</h3>
-                        <p class="project-desc" data-i18n="proj4Desc">Um site para gerenciar tarefas diárias.</p>
-                        <div class="tech-badges">
-                            <span>CSS</span>
-                            <span>HTML</span>
-                            <span>React.js</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener noreferrer"
-                                data-i18n="projBtnCode">GitHub</a>
-                            <a href="#" class="btn btn-outline-light btn-sm disabled" aria-disabled="true"
-                                data-i18n="projBtnLive">Live</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Nova Seção de Contato -->
-        <div class="card-custom reveal" id="contact">
-            <div class="text-center py-4 reveal-child">
-                <h2 class="h4 fw-bold mb-3 reveal reveal-scale" data-i18n="contactTitle">Vamos construir algo juntos?
-                </h2>
-                <p class="mb-4 mx-auto reveal reveal-scale contact-description" style="max-width: 500px;"
-                    data-i18n="contactDesc">
-                    Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas
-                    conversar, me chame!
-                </p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 reveal reveal-scale">
-                    <div class="email-display">
-                        <a href="mailto:Geovanne.ado@outlook.com" class="email-link">
-                            <i data-lucide="mail"></i>
-                            <span>Geovanne.ado@outlook.com</span>
+                            </div>
+                            <div class="social-details">
+                                <span class="social-name">Discord</span>
+                                <span class="social-handle">@Capitaum_</span>
+                            </div>
                         </a>
-                        <button class="btn-copy-email" onclick="copyEmail(event)" id="copyBtn" title="Copiar email">
-                            <i data-lucide="copy"></i>
-                        </button>
+
+                        <a href="https://github.com/Geovanne23/Geovanne23" target="_blank" rel="noopener noreferrer"
+                            class="social-pill-card">
+                            <div class="social-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </div>
+                            <div class="social-details">
+                                <span class="social-name">GitHub</span>
+                                <span class="social-handle">Geovanne23</span>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/geovanne-augusto/?skipRedirect=true" target="_blank"
+                            rel="noopener noreferrer" class="social-pill-card">
+                            <div class="social-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect width="4" height="12" x="2" y="9" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </div>
+                            <div class="social-details">
+                                <span class="social-name">LinkedIn</span>
+                                <span class="social-handle">Geovanne Augusto</span>
+                            </div>
+                        </a>
                     </div>
-                    <a href="https://discord.com/users/732259821012779038" target="_blank"
-                        class="btn-contact btn-discord">
-                        <i data-lucide="message-square"></i>
-                        <span data-i18n="contactDiscordBtn">Discord</span>
+                </div>
+
+                <!-- Hero Avatar Column -->
+                <div class="avatar-container reveal reveal-scale">
+                    <div class="avatar-glass-card">
+                        <img src="Fotos/perfil.jpg" alt="Foto de Geovanne" class="avatar-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades Section -->
+        <section class="section-wrapper" id="skills">
+            <div class="reveal">
+                <div class="section-tag-header">
+                    <span class="section-num">01 //</span>
+                    <span class="text-accent" data-i18n="skillsTag">STACK TECNOLÓGICA</span>
+                </div>
+                <h2 class="section-title" data-i18n="skillsTitle">Habilidades & Tecnologias</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="card-glass reveal">
+                <div class="skills-categories">
+                    <div>
+                        <h3 class="skills-group-title">
+                            <i data-lucide="code" width="20" height="20"></i>
+                            <span data-i18n="skillsGroupFront">Desenvolvimento Frontend</span>
+                        </h3>
+                        <div class="skills-pills-wrap">
+                            <div class="skill-tag-pill"><i data-lucide="file-code"></i> HTML5</div>
+                            <div class="skill-tag-pill"><i data-lucide="palette"></i> CSS3</div>
+                            <div class="skill-tag-pill"><i data-lucide="braces"></i> JavaScript (ES6+)</div>
+                            <div class="skill-tag-pill"><i data-lucide="atom"></i> React.js</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="skills-group-title">
+                            <i data-lucide="cpu" width="20" height="20"></i>
+                            <span data-i18n="skillsGroupTools">Ferramentas & Backend</span>
+                        </h3>
+                        <div class="skills-pills-wrap">
+                            <div class="skill-tag-pill"><i data-lucide="server"></i> Node.js</div>
+                            <div class="skill-tag-pill"><i data-lucide="git-branch"></i> Git & GitHub</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section class="section-wrapper" id="projects">
+            <div class="reveal">
+                <div class="section-tag-header">
+                    <span class="section-num">02 //</span>
+                    <span class="text-accent" data-i18n="projectsTag">PORTFÓLIO DE TRABALHOS</span>
+                </div>
+                <h2 class="section-title" data-i18n="projectsTitle">Projetos em Destaque</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Projeto 1 -->
+                <article class="project-card-purple reveal reveal-scale">
+                    <div class="project-media-wrap">
+                        <img src="Fotos/Filme.png" alt="Projeto Filmes e Séries" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj1Title">Filmes e Séries</h3>
+                        <p class="project-card-desc" data-i18n="proj1Desc">Plataforma moderna para catalogar e explorar
+                            seus filmes e séries favoritos com interface interativa.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/Filmes-e-Series" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="https://geovanne23.github.io/Filmes-e-Series/" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="project-card-purple reveal reveal-scale">
+                    <div class="project-media-wrap">
+                        <img src="Fotos/Ecommerce.png" alt="Projeto E-Commerce" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj2Title">E-Commerce App</h3>
+                        <p class="project-card-desc" data-i18n="proj2Desc">Aplicação web de comércio eletrônico com
+                            carrinho de compras, visualização de produtos e estado com React.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS Modules</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/E-Commerce" target="_blank" rel="noopener noreferrer"
+                                class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="#" class="btn-project-link disabled" aria-disabled="true">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 3 -->
+                <article class="project-card-purple reveal reveal-scale">
+                    <div class="project-media-wrap">
+                        <img src="Fotos/login.png" alt="Projeto Tela de Login" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj3Title">Tela de Login Glassmorphic</h3>
+                        <p class="project-card-desc" data-i18n="proj3Desc">Interface elegante de autenticação com
+                            validações dinâmicas de campos e visual futurista de vidro.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/Login-Screen" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="https://geovanne23.github.io/Login-Screen/" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 4 -->
+                <article class="project-card-purple reveal reveal-scale">
+                    <div class="project-media-wrap">
+                        <img src="Fotos/tarefas.png" alt="Projeto Lista de Tarefas" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj4Title">Lista de Tarefas (To-Do)</h3>
+                        <p class="project-card-desc" data-i18n="proj4Desc">Gerenciador de tarefas diárias com
+                            persistência local de dados, filtros de conclusão e estado reativo.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="#" class="btn-project-link disabled" aria-disabled="true">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sobre Mim / Interesses Section -->
+        <section class="section-wrapper" id="about">
+            <div class="reveal">
+                <div class="section-tag-header">
+                    <span class="section-num">03 //</span>
+                    <span class="text-accent" data-i18n="aboutTag">INTERESSES PESSOAIS</span>
+                </div>
+                <h2 class="section-title" data-i18n="aboutTitle">Sobre mim & Paixões</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Grid de Cartões de Vidro com Badges Elegantes -->
+            <div class="interests-grid reveal">
+                <!-- Músicas Favoritas -->
+                <div class="interest-card-glass">
+                    <div class="interest-card-header">
+                        <div class="interest-icon-glow">
+                            <i data-lucide="music" width="22" height="22"></i>
+                        </div>
+                        <span class="interest-card-title" data-i18n="aboutMusicLabel">Música favorita</span>
+                    </div>
+                    <div class="interest-badges-group">
+                        <span class="interest-pill"><i data-lucide="headphones" width="14" height="14"></i> Anos
+                            luz</span>
+                        <span class="interest-pill"><i data-lucide="headphones" width="14" height="14"></i> Purpose is
+                            Glorious</span>
+                        <span class="interest-pill"><i data-lucide="headphones" width="14" height="14"></i> Another
+                            Dimension</span>
+                        <span class="interest-pill"><i data-lucide="headphones" width="14" height="14"></i> Back
+                            home</span>
+                    </div>
+                </div>
+
+                <!-- Artistas Favoritos -->
+                <div class="interest-card-glass">
+                    <div class="interest-card-header">
+                        <div class="interest-icon-glow">
+                            <i data-lucide="disc" width="22" height="22"></i>
+                        </div>
+                        <span class="interest-card-title" data-i18n="aboutArtistLabel">Artistas</span>
+                    </div>
+                    <div class="interest-badges-group">
+                        <span class="interest-pill"><i data-lucide="user" width="14" height="14"></i> Matuê</span>
+                        <span class="interest-pill"><i data-lucide="user" width="14" height="14"></i> Natalie
+                            Holt</span>
+                        <span class="interest-pill"><i data-lucide="user" width="14" height="14"></i> Pop Money</span>
+                        <span class="interest-pill"><i data-lucide="user" width="14" height="14"></i> Joji</span>
+                    </div>
+                </div>
+
+                <!-- Filme / Série -->
+                <div class="interest-card-glass">
+                    <div class="interest-card-header">
+                        <div class="interest-icon-glow">
+                            <i data-lucide="tv" width="22" height="22"></i>
+                        </div>
+                        <span class="interest-card-title" data-i18n="aboutMovieLabel">Filme/Série Favorita</span>
+                    </div>
+                    <div class="interest-badges-group">
+                        <span class="interest-pill"><i data-lucide="film" width="14" height="14"></i> 911</span>
+                        <span class="interest-pill"><i data-lucide="film" width="14" height="14"></i>
+                            Interestelar</span>
+                        <span class="interest-pill"><i data-lucide="film" width="14" height="14"></i> The Rookie</span>
+                    </div>
+                </div>
+
+                <!-- Jogos Favoritos -->
+                <div class="interest-card-glass">
+                    <div class="interest-card-header">
+                        <div class="interest-icon-glow">
+                            <i data-lucide="gamepad-2" width="22" height="22"></i>
+                        </div>
+                        <span class="interest-card-title" data-i18n="aboutGameLabel">Jogo favorito</span>
+                    </div>
+                    <div class="interest-badges-group">
+                        <span class="interest-pill"><i data-lucide="crosshair" width="14" height="14"></i>
+                            Valorant</span>
+                        <span class="interest-pill"><i data-lucide="box" width="14" height="14"></i> Minecraft</span>
+                        <span class="interest-pill"><i data-lucide="zap" width="14" height="14"></i> Fortnite</span>
+                        <span class="interest-pill"><i data-lucide="shield" width="14" height="14"></i> Age Of Empires
+                            4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section class="section-wrapper" id="contact">
+            <div class="contact-banner-card reveal reveal-scale">
+                <div class="section-tag-header" style="justify-content: center;">
+                    <span class="section-num">04 //</span>
+                    <span class="text-accent" data-i18n="contactTag">VAMOS CONVERSAR</span>
+                </div>
+
+                <h2 class="contact-main-title" data-i18n="contactTitle">Vamos construir algo juntos?</h2>
+
+                <p class="contact-main-desc" data-i18n="contactDesc">
+                    Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia de projeto ou quer
+                    apenas conversar, me chame!
+                </p>
+
+                <div class="email-copy-container">
+                    <span class="email-address-text">Geovanne.ado@outlook.com</span>
+                    <button class="btn-copy-email" id="copyBtn" onclick="copyEmail(event)" title="Copiar e-mail">
+                        <i data-lucide="copy" width="18" height="18"></i>
+                    </button>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                    <a href="mailto:Geovanne.ado@outlook.com" class="btn-primary-purple">
+                        <i data-lucide="send" width="18" height="18"></i>
+                        <span data-i18n="contactEmailBtn">Enviar E-mail</span>
+                    </a>
+                    <a href="https://discord.com/users/732259821012779038" target="_blank" rel="noopener noreferrer"
+                        class="btn-glass">
+                        <i data-lucide="message-square" width="18" height="18"></i>
+                        <span>Discord</span>
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
-    <!-- Music Player Widget -->
-    <div class="music-player-widget">
-        <div class="music-info">
-            <div id="music-icon-container" class="music-icon-wrapper">
-                <img src="Fotos/album-333.jpg" alt="Album Art" id="album-art-img" decoding="async">
-            </div>
-            <div class="music-meta">
-                <span class="song-title">333</span>
-                <span class="artist-name">Matuê</span>
-                <span class="next-song-label">Próxima: Isso é Sério</span>
-            </div>
-        </div>
-        <div class="music-controls">
-            <button id="music-play-pause" class="music-btn" aria-label="Tocar/Pausar">
-                <span id="play-icon-wrapper"><i data-lucide="play"></i></span>
-                <span id="pause-icon-wrapper" style="display: none;"><i data-lucide="pause"></i></span>
-            </button>
-            <button id="music-skip" class="music-btn" aria-label="Próxima">
-                <i data-lucide="skip-forward"></i>
-            </button>
-            <div class="volume-control">
-                <i data-lucide="volume-2" class="v-icon"></i>
-                <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.1">
-                <span id="volume-value">10%</span>
-            </div>
-        </div>
-        <audio id="bg-music">
-            <source src="Musica/333.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+    </main>
 
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="site-container">
+            <p>Geovanne © 2026 • <span data-i18n="footerByline">Feito com paixão e código</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript & Interactive Scripts -->
     <script>
-        // Force the page to always load at the top (F5 or reload)
+        // Force manual scroll position on refresh
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
 
+        // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Email Copy Functionality with Animated Toast Feedback
         function copyEmail(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -373,8 +503,8 @@
             navigator.clipboard.writeText(email).then(() => {
                 const copyBtn = document.getElementById('copyBtn');
                 const originalHTML = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i data-lucide="check"></i>';
-                copyBtn.style.background = 'rgba(16, 185, 129, 0.8)';
+                copyBtn.innerHTML = '<i data-lucide="check" width="18" height="18"></i>';
+                copyBtn.style.background = '#10b981';
                 lucide.createIcons();
                 setTimeout(() => {
                     copyBtn.innerHTML = originalHTML;
@@ -384,8 +514,209 @@
             });
         }
 
-        // ===== SECRET MENU =====
-        // Inject styles
+        // Translation Dictionary (i18n)
+        const translations = {
+            pt: {
+                navHome: 'Início',
+                navSkills: 'Habilidades',
+                navProjects: 'Projetos',
+                navAbout: 'Sobre',
+                navContact: 'Contato',
+                statusText: 'Disponível',
+                heroTag: 'Desenvolvedor & Entusiasta Tech',
+                greetingPrefix: 'Olá, eu sou',
+                greetingName: 'Geovanne',
+                bio: 'Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de problemas no desenvolvimento de software.',
+                ctaProjects: 'Ver Projetos',
+                ctaContact: 'Contato',
+                statusName: 'GEOVANNE',
+                skillsTag: 'STACK TECNOLÓGICA',
+                skillsTitle: 'Habilidades & Tecnologias',
+                skillsGroupFront: 'Desenvolvimento Frontend',
+                skillsGroupTools: 'Ferramentas & Backend',
+                projectsTag: 'PORTFÓLIO DE TRABALHOS',
+                projectsTitle: 'Projetos em Destaque',
+                proj1Title: 'Filmes e Séries',
+                proj1Desc: 'Plataforma moderna para catalogar e explorar seus filmes e séries favoritos com interface interativa.',
+                proj2Title: 'E-Commerce App',
+                proj2Desc: 'Aplicação web de comércio eletrônico com carrinho de compras, visualização de produtos e estado com React.',
+                proj3Title: 'Tela de Login Glassmorphic',
+                proj3Desc: 'Interface elegante de autenticação com validações dinâmicas de campos e visual futurista de vidro.',
+                proj4Title: 'Lista de Tarefas (To-Do)',
+                proj4Desc: 'Gerenciador de tarefas diárias com persistência local de dados, filtros de conclusão e estado reativo.',
+                projBtnCode: 'Código',
+                projBtnLive: 'Live Demo',
+                aboutTag: 'INTERESSES PESSOAIS',
+                aboutTitle: 'Sobre mim & Paixões',
+                aboutMindsetText: '"Unindo o foco estratégico e o raciocínio rápido dos jogos com a criatividade da programação para construir aplicações modernas, fluidas e focadas na melhor experiência."',
+                aboutMusicLabel: 'Música favorita:',
+                aboutMusicValue: 'Anos luz (Matuê), Purpose is Glorious (Samuel Kim), Another Dimension (Pop Smoke), Back home (A$AP Rocky)',
+                aboutArtistLabel: 'Artista:',
+                aboutArtistValue: 'Matuê',
+                aboutMovieLabel: 'Filme/Série Favorita:',
+                aboutMovieValue: '911, Interestelar, The Rookie',
+                aboutGameLabel: 'Jogo favorito:',
+                aboutGameValue: 'Valorant, Minecraft, Fortnite, AoE',
+                contactTag: 'VAMOS CONVERSAR',
+                contactTitle: 'Vamos construir algo juntos?',
+                contactDesc: 'Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia de projeto ou quer apenas conversar, me chame!',
+                contactEmailBtn: 'Enviar E-mail',
+                footerByline: 'Feito com paixão e código'
+            },
+            en: {
+                navHome: 'Home',
+                navSkills: 'Skills',
+                navProjects: 'Projects',
+                navAbout: 'About',
+                navContact: 'Contact',
+                statusText: 'Available',
+                heroTag: 'Developer & Tech Enthusiast',
+                greetingPrefix: 'Hi, I am',
+                greetingName: 'Geovanne',
+                bio: 'Young tech and gaming enthusiast. I found programming as a way to combine logical thinking and creativity to build new solutions, applying a problem-solving mindset to software development.',
+                ctaProjects: 'View Projects',
+                ctaContact: 'Contact Me',
+                statusName: 'GEOVANNE',
+                skillsTag: 'TECH STACK',
+                skillsTitle: 'Skills & Technologies',
+                skillsGroupFront: 'Frontend Development',
+                skillsGroupTools: 'Tools & Backend',
+                projectsTag: 'PORTFOLIO WORK',
+                projectsTitle: 'Featured Projects',
+                proj1Title: 'Movies & Series',
+                proj1Desc: 'Modern web app to browse and catalog your favorite movies and TV shows with interactive UI.',
+                proj2Title: 'E-Commerce App',
+                proj2Desc: 'E-commerce web application featuring shopping cart, product showcase, and React state management.',
+                proj3Title: 'Glassmorphic Login Screen',
+                proj3Desc: 'Sleek authentication interface with dynamic field validations and futuristic glass visual aesthetics.',
+                proj4Title: 'To-Do List Manager',
+                proj4Desc: 'Daily task manager with local storage persistence, status filters, and reactive state management.',
+                projBtnCode: 'Code',
+                projBtnLive: 'Live Demo',
+                aboutTag: 'PERSONAL INTERESTS',
+                aboutTitle: 'About Me & Passions',
+                aboutMusicLabel: 'Favorite music:',
+                aboutMusicValue: 'Anos luz (Matuê), Purpose is Glorious (Samuel Kim), Another Dimension (Pop Smoke), Back home (A$AP Rocky)',
+                aboutArtistLabel: 'Artist:',
+                aboutArtistValue: 'Matuê',
+                aboutMovieLabel: 'Favorite movie/series:',
+                aboutMovieValue: '911, Interstellar, The Rookie',
+                aboutGameLabel: 'Favorite game:',
+                aboutGameValue: 'Valorant, Minecraft, Fortnite, AoE',
+                contactTag: 'LET\'S CONNECT',
+                contactTitle: 'Let\'s build something together?',
+                contactDesc: 'I am always open to new challenges and collaborations. If you have an idea or just want to chat, drop me a line!',
+                contactEmailBtn: 'Send Email',
+                footerByline: 'Built with passion and code'
+            }
+        };
+
+        // Theme Switcher Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.add('theme-transitioning');
+            if (themeToggle) themeToggle.classList.add('animating');
+
+            if (theme === 'light') {
+                body.classList.add('light-theme');
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                body.classList.remove('light-theme');
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            lucide.createIcons();
+            localStorage.setItem('theme', theme);
+
+            setTimeout(() => {
+                body.classList.remove('theme-transitioning');
+                if (themeToggle) themeToggle.classList.remove('animating');
+            }, 550);
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isLight = body.classList.contains('light-theme');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+        }
+
+        // Language Switcher Logic with Animated Text Transition
+        function applyTranslations(lang, animate = false) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            if (animate) {
+                elements.forEach(el => el.classList.add('i18n-animating'));
+                setTimeout(() => {
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        if (translations[lang] && translations[lang][key]) {
+                            el.textContent = translations[lang][key];
+                        }
+                    });
+                }, 150);
+                setTimeout(() => {
+                    elements.forEach(el => el.classList.remove('i18n-animating'));
+                }, 350);
+            } else {
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            document.getElementById('lang-switch-container').setAttribute('data-active', lang);
+            localStorage.setItem('lang', lang);
+        }
+
+        const savedLang = localStorage.getItem('lang') || 'pt';
+        applyTranslations(savedLang, false);
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.dataset.lang !== localStorage.getItem('lang')) {
+                    applyTranslations(btn.dataset.lang, true);
+                }
+            });
+        });
+
+        // IntersectionObserver Scroll Reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Smart Auto-Hide Floating Navbar on Scroll
+        let lastScrollY = window.scrollY;
+        const headerWrapper = document.querySelector('.site-header-wrapper');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                // Scrolling DOWN -> Hide navbar
+                headerWrapper.classList.add('nav-hidden');
+            } else {
+                // Scrolling UP or at top -> Show navbar
+                headerWrapper.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // ===== SECRET MENU LOGIC =====
         const secretStyles = document.createElement('style');
         secretStyles.textContent = `
           #secret-trigger {
@@ -393,145 +724,71 @@
             width: 14px; height: 14px;
             background: transparent; border: none;
             z-index: 10000; cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
           }
           #secret-menu-overlay {
             position: fixed; inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 10001;
             display: flex; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             padding: 1rem;
           }
-          #secret-menu-overlay.open {
-            opacity: 1; visibility: visible;
-          }
-          #secret-menu-overlay.open .secret-menu-card {
-            transform: translateY(0) scale(1); opacity: 1;
-          }
+          #secret-menu-overlay.open { opacity: 1; visibility: visible; }
           .secret-menu-card {
-            background: linear-gradient(160deg, #1a1a2e 0%, #0e0e1a 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 2rem 1.5rem 1.75rem;
+            background: linear-gradient(160deg, #0b1329 0%, #030712 100%);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
             max-width: 360px; width: 100%;
-            transform: translateY(20px) scale(0.95); opacity: 0;
+            transform: translateY(20px) scale(0.95);
             transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), opacity 0.3s ease;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
             position: relative; overflow: hidden;
           }
+          #secret-menu-overlay.open .secret-menu-card { transform: translateY(0) scale(1); }
           .secret-menu-card::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #e63946, #ff6b35, #e63946);
+            background: linear-gradient(90deg, #06b6d4, #3b82f6, #06b6d4);
             background-size: 200% 100%;
             animation: secret-stripe 3s linear infinite;
           }
           @keyframes secret-stripe { 0%{background-position:0 0}100%{background-position:200% 0} }
-          .secret-menu-header {
-            text-align: center; margin-bottom: 1.5rem;
-          }
-          .secret-menu-icon {
-            font-size: 2rem; margin-bottom: 0.5rem;
-          }
-          .secret-menu-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.15rem; font-weight: 800;
-            color: #f2f2f8; letter-spacing: -0.3px;
-          }
-          .secret-menu-subtitle {
-            font-size: 0.78rem; color: #9898b0; margin-top: 4px;
-          }
-          .secret-menu-options {
-            display: flex; flex-direction: column; gap: 10px;
-          }
+          .secret-menu-header { text-align: center; margin-bottom: 1.5rem; }
+          .secret-menu-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+          .secret-menu-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: #ffffff; }
+          .secret-menu-subtitle { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+          .secret-menu-options { display: flex; flex-direction: column; gap: 10px; }
           .secret-option {
             display: flex; align-items: center; gap: 14px;
-            padding: 14px 16px;
-            border-radius: 14px;
+            padding: 14px 16px; border-radius: 16px;
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
-            text-decoration: none; color: #f2f2f8;
+            text-decoration: none; color: #ffffff;
             cursor: pointer; transition: all 0.25s ease;
-            position: relative; overflow: hidden;
           }
           .secret-option:hover {
-            background: rgba(230,57,70,0.1);
-            border-color: rgba(230,57,70,0.3);
+            background: rgba(6,182,212,0.15);
+            border-color: rgba(6,182,212,0.4);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            color: #f2f2f8;
-            text-decoration: none;
-          }
-          .secret-option:active { transform: scale(0.97); }
-          .secret-option-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; flex-shrink: 0;
-          }
-          .secret-option-icon.gym {
-            background: linear-gradient(135deg, rgba(230,57,70,0.2), rgba(255,107,53,0.15));
-            border: 1px solid rgba(230,57,70,0.25);
-            color: #e63946;
-          }
-          .secret-option-icon.soon {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #58587a;
-          }
-          .secret-option-info { flex: 1; min-width: 0; }
-          .secret-option-name {
-            font-size: 0.92rem; font-weight: 700; line-height: 1.3;
-          }
-          .secret-option-desc {
-            font-size: 0.72rem; color: #9898b0; margin-top: 2px;
-          }
-          .secret-option-arrow {
-            color: #58587a; font-size: 0.9rem;
-            transition: transform 0.2s, color 0.2s;
-          }
-          .secret-option:hover .secret-option-arrow {
-            color: #e63946; transform: translateX(3px);
-          }
-          .secret-option.disabled {
-            opacity: 0.45; cursor: not-allowed; pointer-events: none;
-          }
-          .soon-badge {
-            font-size: 0.58rem; font-weight: 700;
-            letter-spacing: 1px; text-transform: uppercase;
-            padding: 2px 8px; border-radius: 5px;
-            background: rgba(245,158,11,0.12);
-            border: 1px solid rgba(245,158,11,0.2);
-            color: #f59e0b; margin-left: 6px;
           }
           .secret-close {
-            position: absolute; top: 12px; right: 14px;
-            width: 30px; height: 30px;
-            border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.05);
-            color: #9898b0; font-size: 0.9rem;
+            position: absolute; top: 14px; right: 14px;
+            width: 30px; height: 30px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); color: #ffffff;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: all 0.2s;
-          }
-          .secret-close:hover {
-            background: rgba(230,57,70,0.15);
-            border-color: rgba(230,57,70,0.3);
-            color: #e63946;
           }
         `;
         document.head.appendChild(secretStyles);
 
-        // Trigger button (invisible 14x14 corner)
         const secretTrigger = document.createElement('button');
         secretTrigger.id = 'secret-trigger';
         secretTrigger.title = 'Área Secreta';
-        secretTrigger.setAttribute('aria-label', 'Abrir menu secreto');
         document.body.appendChild(secretTrigger);
 
-        // Menu overlay
         const secretOverlay = document.createElement('div');
         secretOverlay.id = 'secret-menu-overlay';
         secretOverlay.innerHTML = `
@@ -544,30 +801,19 @@
             </div>
             <div class="secret-menu-options">
               <a href="gym/index.html" target="_blank" class="secret-option" id="secret-gym">
-                <div class="secret-option-icon gym">💪</div>
-                <div class="secret-option-info">
-                  <div class="secret-option-name">Academia</div>
-                  <div class="secret-option-desc">Plano de treino · Além da Genética</div>
+                <div style="font-size: 1.3rem;">💪</div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem;">Academia</div>
+                  <div style="font-size: 0.75rem; color: #94a3b8;">Plano de treino · Além da Genética</div>
                 </div>
-                <span class="secret-option-arrow">→</span>
               </a>
-              <div class="secret-option disabled">
-                <div class="secret-option-icon soon">✨</div>
-                <div class="secret-option-info">
-                  <div class="secret-option-name">Em Breve <span class="soon-badge">Soon</span></div>
-                  <div class="secret-option-desc">Novo conteúdo em desenvolvimento</div>
-                </div>
-                <span class="secret-option-arrow">→</span>
-              </div>
             </div>
           </div>
         `;
         document.body.appendChild(secretOverlay);
 
-        // Open / close logic
         secretTrigger.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
             secretOverlay.classList.add('open');
         });
         document.getElementById('secret-close').addEventListener('click', () => {
@@ -576,309 +822,7 @@
         secretOverlay.addEventListener('click', (e) => {
             if (e.target === secretOverlay) secretOverlay.classList.remove('open');
         });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') secretOverlay.classList.remove('open');
-        });
-
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-
-        const translations = {
-            pt: {
-                greetingPrefix: 'Olá, eu sou',
-                greetingName: 'Geovanne',
-                bio: 'Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de problemas dos jogos no desenvolvimento de software.',
-                connect: 'Conecte-se comigo',
-                aboutTitle: 'Sobre mim',
-                skillsTitle: 'Habilidades',
-                aboutMusicLabel: 'Música favorita',
-                aboutMusicValue: 'Isso é Sério, 333',
-                aboutArtistLabel: 'Artista',
-                aboutArtistValue: 'Matuê',
-                aboutMovieLabel: 'Filme/Série Favorita',
-                aboutMovieValue: '911, Interestelar',
-                aboutGameLabel: 'Jogo favorito',
-                aboutGameValue: 'Valorant, Minecraft, Age of Empires',
-                gamesTitle: 'Jogos Favoritos',
-                seriesTitle: 'Séries Favoritas',
-                interestValorant: 'Valorant',
-                interestMinecraft: 'Minecraft',
-                interestAoE4: 'Age of Empires',
-                interest911: '911',
-                interestInterstellar: 'Interestelar',
-                interestRookie: 'The Rookie',
-                footerByline: 'Feito por Geovanne',
-                navProjects: 'Projetos',
-                navInterests: 'Interesses',
-                projectsTitle: 'Projetos',
-                proj1Title: 'Filmes e Séries',
-                proj1Desc: 'Um site para exibir seus filmes e séries favoritos.',
-                proj2Title: 'E-Commerce',
-                proj2Desc: 'Um site de comércio eletrônico para venda de produtos.',
-                proj3Title: 'Tela de Login',
-                proj3Desc: 'Uma página de login para um aplicativo web.',
-                proj4Title: 'Lista de Tarefas',
-                proj4Desc: 'Um site para gerenciar tarefas diárias.',
-                contactTitle: 'Vamos construir algo juntos?',
-                contactDesc: 'Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia ou quer apenas conversar, me chame!',
-                contactEmailBtn: 'Enviar E-mail',
-                contactCopyBtn: 'Copiar E-mail',
-                contactDiscordBtn: 'Discord',
-                projBtnCode: 'Ver código',
-                projBtnLive: 'Demo'
-            },
-            en: {
-                greetingPrefix: 'Hi, I am',
-                greetingName: 'Geovanne',
-                bio: 'Young tech and gaming enthusiast. I found programming as a way to combine logical thinking and creativity to build new solutions, applying a game problem-solving mindset to software development.',
-                connect: 'Connect with me',
-                aboutTitle: 'About me',
-                skillsTitle: 'Skills',
-                aboutMusicLabel: 'Favorite music',
-                aboutMusicValue: 'Isso é Sério, 333',
-                aboutArtistLabel: 'Artist',
-                aboutArtistValue: 'Matuê',
-                aboutMovieLabel: 'Favorite movie/series',
-                aboutMovieValue: '911, Interstellar',
-                aboutGameLabel: 'Favorite game',
-                aboutGameValue: 'Valorant, Minecraft, Age of Empires',
-                gamesTitle: 'Favorite Games',
-                seriesTitle: 'Favorite Series',
-
-                interestsTitle: 'Personal Interests',
-                interestValorant: 'Valorant',
-                interestMinecraft: 'Minecraft',
-                interestAoE4: 'Age of Empires',
-                interest911: '911',
-                interestInterstellar: 'Interstellar',
-                interestRookie: 'The Rookie',
-                footerByline: 'by Geovanne',
-                navProjects: 'Projects',
-                navInterests: 'Interests',
-                projectsTitle: 'Projects',
-                proj1Title: 'Movies and Series',
-                proj1Desc: 'A website to display favorite movies and series.',
-                proj2Title: 'E-Commerce',
-                proj2Desc: 'A website for online shopping.',
-                proj3Title: 'Login Screen',
-                proj3Desc: 'A login page for a web application.',
-                proj4Title: 'To-Do List',
-                proj4Desc: 'A website to manage daily tasks.',
-                contactTitle: 'Let\'s build something together?',
-                contactDesc: 'I’m always looking for new challenges and collaborations. If you have an idea or just want to chat, get in touch!',
-                contactEmailBtn: 'Send Email',
-                contactCopyBtn: 'Copy Email',
-                contactDiscordBtn: 'Discord',
-                projBtnCode: 'View Code',
-                projBtnLive: 'Live Demo'
-            }
-        };
-
-        function setTheme(theme, event) {
-            const changeTheme = () => {
-                if (theme === 'light') {
-                    body.classList.add('light-theme');
-                    themeIcon.setAttribute('data-lucide', 'sun');
-                } else {
-                    body.classList.remove('light-theme');
-                    themeIcon.setAttribute('data-lucide', 'moon');
-                }
-                lucide.createIcons();
-                localStorage.setItem('theme', theme);
-            };
-
-            // Skip animation if View Transitions not available or not interactive
-            if (!document.startViewTransition || !event) {
-                changeTheme();
-                return;
-            }
-
-            const x = event.clientX;
-            const y = event.clientY;
-            const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-
-            const transition = document.startViewTransition(changeTheme);
-
-            transition.ready.then(() => {
-                document.documentElement.animate(
-                    { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`] },
-                    { 
-                        duration: 450, 
-                        easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', 
-                        pseudoElement: '::view-transition-new(root)' 
-                    }
-                );
-            });
-        }
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', (e) => {
-            const isLight = body.classList.contains('light-theme');
-            setTheme(isLight ? 'dark' : 'light', e);
-        });
-
-        function applyTranslations(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-            document.getElementById('lang-switch-container').setAttribute('data-active', lang);
-            localStorage.setItem('lang', lang);
-        }
-
-        // Initialize language
-        const savedLang = localStorage.getItem('lang') || 'pt';
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[savedLang] && translations[savedLang][key]) {
-                el.textContent = translations[savedLang][key];
-            }
-        });
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === savedLang));
-        document.getElementById('lang-switch-container').setAttribute('data-active', savedLang);
-
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
-            if (localStorage.getItem('lang') !== btn.dataset.lang) {
-                applyTranslations(btn.dataset.lang);
-            }
-        }));
-
-        // Smooth scroll for header nav links
-        document.querySelectorAll('.site-nav .nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        const songs = [
-            { title: '333', artist: 'Matuê', src: 'Musica/333.mp3' },
-            { title: 'Isso é Sério', artist: 'Matuê', src: 'Musica/isso_e_serio.mp3' }
-        ];
-        let currentSongIndex = 0;
-
-        const music = document.getElementById('bg-music');
-        const playPauseBtn = document.getElementById('music-play-pause');
-        const skipBtn = document.getElementById('music-skip');
-        const playIconWrapper = document.getElementById('play-icon-wrapper');
-        const pauseIconWrapper = document.getElementById('pause-icon-wrapper');
-        const volumeSlider = document.getElementById('music-volume');
-        const volumeValue = document.getElementById('volume-value');
-        const songTitleEl = document.querySelector('.song-title');
-        const artistNameEl = document.querySelector('.artist-name');
-        const nextSongEl = document.querySelector('.next-song-label');
-        const musicIconContainer = document.getElementById('music-icon-container');
-        const playerWidget = document.querySelector('.music-player-widget');
-
-        function loadTrack(index) {
-            const song = songs[index];
-            const nextSong = songs[(index + 1) % songs.length];
-            
-            music.src = song.src;
-            songTitleEl.textContent = song.title;
-            artistNameEl.textContent = song.artist;
-            nextSongEl.textContent = `Próxima: ${nextSong.title}`;
-            
-            music.load();
-        }
-
-        function togglePulse(playing) {
-            if (playing) {
-                musicIconContainer.classList.add('pulse-animation');
-                playIconWrapper.style.display = 'none';
-                pauseIconWrapper.style.display = 'inline-flex';
-            } else {
-                musicIconContainer.classList.remove('pulse-animation');
-                playIconWrapper.style.display = 'inline-flex';
-                pauseIconWrapper.style.display = 'none';
-            }
-        }
-
-        playPauseBtn.addEventListener('click', () => {
-            if (music.paused) {
-                music.play().catch(e => console.log('Autoplay blocked'));
-                togglePulse(true);
-            } else {
-                music.pause();
-                togglePulse(false);
-            }
-        });
-
-        skipBtn.addEventListener('click', () => {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            loadTrack(currentSongIndex);
-            music.play().catch(e => console.log('Autoplay blocked'));
-            togglePulse(true);
-        });
-
-        music.addEventListener('ended', () => {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            loadTrack(currentSongIndex);
-            music.play();
-            togglePulse(true);
-        });
-
-        function updateVolumeProgress() {
-            const percent = Math.round(volumeSlider.value * 100);
-            volumeSlider.style.setProperty('--volume-percent', percent + '%');
-            volumeValue.textContent = percent + '%';
-        }
-
-        volumeSlider.addEventListener('input', (e) => {
-            music.volume = e.target.value;
-            updateVolumeProgress();
-        });
-
-        // Toggle expansion on icon click (Mobile only logic for cleaner experience)
-        musicIconContainer.addEventListener('click', (e) => {
-            if (window.innerWidth <= 576) {
-                e.stopPropagation();
-                playerWidget.classList.toggle('expanded');
-            }
-        });
-
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!playerWidget.contains(e.target) && playerWidget.classList.contains('expanded')) {
-                playerWidget.classList.remove('expanded');
-            }
-        });
-
-        lucide.createIcons();
-
-        // Initialize first track and volume (10%)
-        loadTrack(currentSongIndex);
-        music.volume = 0.1;
-        volumeSlider.value = 0.1;
-        updateVolumeProgress();
-        togglePulse(false); 
     </script>
-    <footer class="site-footer pb-4 pt-0">
-        <div class="container text-center">
-            <small>Geovanneaaa © 2026</small>
-        </div>
-    </footer>
 </body>
 
 </html>
