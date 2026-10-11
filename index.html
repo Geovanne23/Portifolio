@@ -23,29 +23,27 @@
         rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css?v=motion-2">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">Pular para o conteúdo</a>
 
-    <!-- Ambient Glow Background -->
+    <!-- Subtle background accent -->
     <div class="bg-animation"></div>
 
-    <!-- Floating Glass Header Navbar -->
+    <!-- Main navigation -->
     <div class="site-header-wrapper">
         <nav class="site-navbar" role="navigation" aria-label="Navegação Principal">
-            <a href="#" class="nav-brand">
+            <a href="#hero" class="nav-brand" aria-label="Geovanne — início">
                 <span class="brand-dot"></span>
                 <span>Geovanne</span>
             </a>
 
             <ul class="nav-links">
                 <li><a href="#hero" class="nav-link-item" data-i18n="navHome">Início</a></li>
-                <li><a href="#skills" class="nav-link-item" data-i18n="navSkills">Habilidades</a></li>
                 <li><a href="#projects" class="nav-link-item" data-i18n="navProjects">Projetos</a></li>
+                <li><a href="#skills" class="nav-link-item" data-i18n="navSkills">Habilidades</a></li>
                 <li><a href="#about" class="nav-link-item" data-i18n="navAbout">Sobre</a></li>
                 <li><a href="#contact" class="nav-link-item" data-i18n="navContact">Contato</a></li>
             </ul>
@@ -68,7 +66,7 @@
                 </button>
 
                 <!-- Mobile Menu Toggle Button -->
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle-btn" aria-label="Abrir Menu">
+                <button id="mobile-menu-toggle" aria-controls="mobile-menu-overlay" aria-expanded="false" class="mobile-menu-toggle-btn" aria-label="Abrir Menu">
                     <i data-lucide="menu" id="menu-icon"></i>
                 </button>
             </div>
@@ -76,7 +74,7 @@
     </div>
 
     <!-- Mobile Navigation Drawer Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Navegação" inert>
         <div class="mobile-menu-drawer">
             <div class="mobile-menu-header">
                 <div class="nav-brand">
@@ -89,8 +87,8 @@
             </div>
             <ul class="mobile-nav-links">
                 <li><a href="#hero" class="mobile-nav-item" data-i18n="navHome">Início</a></li>
-                <li><a href="#skills" class="mobile-nav-item" data-i18n="navSkills">Habilidades</a></li>
                 <li><a href="#projects" class="mobile-nav-item" data-i18n="navProjects">Projetos</a></li>
+                <li><a href="#skills" class="mobile-nav-item" data-i18n="navSkills">Habilidades</a></li>
                 <li><a href="#about" class="mobile-nav-item" data-i18n="navAbout">Sobre</a></li>
                 <li><a href="#contact" class="mobile-nav-item" data-i18n="navContact">Contato</a></li>
             </ul>
@@ -104,7 +102,7 @@
     </div>
 
     <!-- Main Content Container -->
-    <main class="site-container">
+    <main class="site-container" id="main-content">
 
         <!-- Hero Section -->
         <section class="hero-section" id="hero">
@@ -115,16 +113,10 @@
                         <span data-i18n="heroTag">Desenvolvedor & Entusiasta Tech</span>
                     </div>
 
-                    <h1 class="hero-title">
-                        <span data-i18n="greetingPrefix">Olá, eu sou</span> <span class="gradient-text"
-                            data-i18n="greetingName">Geovanne</span>
-                    </h1>
+                    <p class="hero-intro"><span data-i18n="greetingPrefix">Olá, eu sou</span> <strong>Geovanne Augusto.</strong></p>
+                    <h1 class="hero-title"><span data-i18n="heroLineOne">Ideias em mente.</span><br><span class="gradient-text" data-i18n="heroLineTwo">Código na prática.</span></h1>
 
-                    <p class="hero-bio" data-i18n="bio">
-                        Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir
-                        raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de
-                        problemas no desenvolvimento de software.
-                    </p>
+                    <p class="hero-bio" data-i18n="bio">Transformo criatividade e raciocínio lógico em experiências para a web. Desenvolvedor, entusiasta de tecnologia e gamer nas horas vagas.</p>
 
                     <div class="hero-cta-group">
                         <a href="#projects" class="btn-primary-purple">
@@ -171,7 +163,7 @@
                             </div>
                         </a>
 
-                        <a href="https://github.com/Geovanne23/Geovanne23" target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/Geovanne23" target="_blank" rel="noopener noreferrer"
                             class="social-pill-card">
                             <div class="social-icon-wrapper">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -211,9 +203,130 @@
                 <!-- Hero Avatar Column -->
                 <div class="avatar-container reveal reveal-scale">
                     <div class="avatar-glass-card">
-                        <img src="Fotos/perfil.jpg" alt="Foto de Geovanne" class="avatar-image">
+                        <img src="Fotos/perfil.jpg" alt="Geovanne à beira-mar ao pôr do sol" class="avatar-image" width="735" height="677" fetchpriority="high">
+                        <div class="portrait-caption"><span class="portrait-label">GEOVANNE AUGUSTO</span><span data-i18n="portraitCaption">Entre uma ideia e a próxima.</span></div>
                     </div>
+                    <div class="portrait-note"><span class="status-dot-pulse"></span><span data-i18n="portraitNote">Sempre aprendendo. Sempre criando.</span></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section class="section-wrapper" id="projects">
+            <div class="reveal">
+                <div class="section-tag-header">
+                    <span class="section-num">01 /</span>
+                    <span class="text-accent" data-i18n="projectsTag">PORTFÓLIO DE TRABALHOS</span>
+                </div>
+                <h2 class="section-title" data-i18n="projectsTitle">Projetos em Destaque</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="projects-toolbar"><p data-i18n="projectsIntro">Experimentos, interfaces e soluções que saíram do papel.</p><div class="project-filters" role="group" aria-label="Filtrar projetos"><button class="filter-btn active" data-filter="all" aria-pressed="true" data-i18n="filterAll">Todos</button><button class="filter-btn" data-filter="javascript" aria-pressed="false">JavaScript</button><button class="filter-btn" data-filter="react" aria-pressed="false">React</button></div></div>
+            <div class="projects-grid">
+                <!-- Projeto 1 -->
+                <article class="project-card-purple reveal reveal-scale" data-category="javascript">
+                    <div class="project-media-wrap"><span class="project-index">01</span>
+                        <img src="Fotos/Filme.png" alt="Projeto Filmes e Séries" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj1Title">Filmes e Séries</h3>
+                        <p class="project-card-desc" data-i18n="proj1Desc">Plataforma moderna para catalogar e explorar
+                            seus filmes e séries favoritos com interface interativa.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/Filmes-e-Series" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="https://geovanne23.github.io/Filmes-e-Series/" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 -->
+                <article class="project-card-purple reveal reveal-scale" data-category="react">
+                    <div class="project-media-wrap"><span class="project-index">02</span>
+                        <img src="Fotos/Ecommerce.png" alt="Projeto E-Commerce" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj2Title">E-Commerce App</h3>
+                        <p class="project-card-desc" data-i18n="proj2Desc">Aplicação web de comércio eletrônico com
+                            carrinho de compras, visualização de produtos e estado com React.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS Modules</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/E-Commerce" target="_blank" rel="noopener noreferrer"
+                                class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <span class="btn-project-link disabled"> <span data-i18n="demoSoon">Demo em breve</span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 3 -->
+                <article class="project-card-purple reveal reveal-scale" data-category="javascript">
+                    <div class="project-media-wrap"><span class="project-index">03</span>
+                        <img src="Fotos/login.png" alt="Projeto Tela de Login" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj3Title">Tela de Login Glassmorphic</h3>
+                        <p class="project-card-desc" data-i18n="proj3Desc">Interface elegante de autenticação com
+                            validações dinâmicas de campos e visual futurista de vidro.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Geovanne23/Login-Screen" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="github" width="16" height="16"></i> <span
+                                    data-i18n="projBtnCode">Código</span>
+                            </a>
+                            <a href="https://geovanne23.github.io/Login-Screen/" target="_blank"
+                                rel="noopener noreferrer" class="btn-project-link">
+                                <i data-lucide="external-link" width="16" height="16"></i> <span
+                                    data-i18n="projBtnLive">Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 4 -->
+                <article class="project-card-purple reveal reveal-scale" data-category="react">
+                    <div class="project-media-wrap"><span class="project-index">04</span>
+                        <img src="Fotos/tarefas.png" alt="Projeto Lista de Tarefas" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content-body">
+                        <h3 class="project-card-title" data-i18n="proj4Title">Lista de Tarefas (To-Do)</h3>
+                        <p class="project-card-desc" data-i18n="proj4Desc">Gerenciador de tarefas diárias com
+                            persistência local de dados, filtros de conclusão e estado reativo.</p>
+                        <div class="tech-badges-wrap">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="btn-project-link disabled" data-i18n="codeSoon">Código em breve</span>
+                            <span class="btn-project-link disabled"> <span data-i18n="demoSoon">Demo em breve</span></span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -221,7 +334,7 @@
         <section class="section-wrapper" id="skills">
             <div class="reveal">
                 <div class="section-tag-header">
-                    <span class="section-num">01 //</span>
+                    <span class="section-num">02 /</span>
                     <span class="text-accent" data-i18n="skillsTag">STACK TECNOLÓGICA</span>
                 </div>
                 <h2 class="section-title" data-i18n="skillsTitle">Habilidades & Tecnologias</h2>
@@ -257,138 +370,11 @@
             </div>
         </section>
 
-        <!-- Projetos Section -->
-        <section class="section-wrapper" id="projects">
-            <div class="reveal">
-                <div class="section-tag-header">
-                    <span class="section-num">02 //</span>
-                    <span class="text-accent" data-i18n="projectsTag">PORTFÓLIO DE TRABALHOS</span>
-                </div>
-                <h2 class="section-title" data-i18n="projectsTitle">Projetos em Destaque</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Projeto 1 -->
-                <article class="project-card-purple reveal reveal-scale">
-                    <div class="project-media-wrap">
-                        <img src="Fotos/Filme.png" alt="Projeto Filmes e Séries" class="project-img" loading="lazy">
-                    </div>
-                    <div class="project-content-body">
-                        <h3 class="project-card-title" data-i18n="proj1Title">Filmes e Séries</h3>
-                        <p class="project-card-desc" data-i18n="proj1Desc">Plataforma moderna para catalogar e explorar
-                            seus filmes e séries favoritos com interface interativa.</p>
-                        <div class="tech-badges-wrap">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <a href="https://github.com/Geovanne23/Filmes-e-Series" target="_blank"
-                                rel="noopener noreferrer" class="btn-project-link">
-                                <i data-lucide="github" width="16" height="16"></i> <span
-                                    data-i18n="projBtnCode">Código</span>
-                            </a>
-                            <a href="https://geovanne23.github.io/Filmes-e-Series/" target="_blank"
-                                rel="noopener noreferrer" class="btn-project-link">
-                                <i data-lucide="external-link" width="16" height="16"></i> <span
-                                    data-i18n="projBtnLive">Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projeto 2 -->
-                <article class="project-card-purple reveal reveal-scale">
-                    <div class="project-media-wrap">
-                        <img src="Fotos/Ecommerce.png" alt="Projeto E-Commerce" class="project-img" loading="lazy">
-                    </div>
-                    <div class="project-content-body">
-                        <h3 class="project-card-title" data-i18n="proj2Title">E-Commerce App</h3>
-                        <p class="project-card-desc" data-i18n="proj2Desc">Aplicação web de comércio eletrônico com
-                            carrinho de compras, visualização de produtos e estado com React.</p>
-                        <div class="tech-badges-wrap">
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS Modules</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <a href="https://github.com/Geovanne23/E-Commerce" target="_blank" rel="noopener noreferrer"
-                                class="btn-project-link">
-                                <i data-lucide="github" width="16" height="16"></i> <span
-                                    data-i18n="projBtnCode">Código</span>
-                            </a>
-                            <a href="#" class="btn-project-link disabled" aria-disabled="true">
-                                <i data-lucide="external-link" width="16" height="16"></i> <span
-                                    data-i18n="projBtnLive">Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projeto 3 -->
-                <article class="project-card-purple reveal reveal-scale">
-                    <div class="project-media-wrap">
-                        <img src="Fotos/login.png" alt="Projeto Tela de Login" class="project-img" loading="lazy">
-                    </div>
-                    <div class="project-content-body">
-                        <h3 class="project-card-title" data-i18n="proj3Title">Tela de Login Glassmorphic</h3>
-                        <p class="project-card-desc" data-i18n="proj3Desc">Interface elegante de autenticação com
-                            validações dinâmicas de campos e visual futurista de vidro.</p>
-                        <div class="tech-badges-wrap">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <a href="https://github.com/Geovanne23/Login-Screen" target="_blank"
-                                rel="noopener noreferrer" class="btn-project-link">
-                                <i data-lucide="github" width="16" height="16"></i> <span
-                                    data-i18n="projBtnCode">Código</span>
-                            </a>
-                            <a href="https://geovanne23.github.io/Login-Screen/" target="_blank"
-                                rel="noopener noreferrer" class="btn-project-link">
-                                <i data-lucide="external-link" width="16" height="16"></i> <span
-                                    data-i18n="projBtnLive">Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projeto 4 -->
-                <article class="project-card-purple reveal reveal-scale">
-                    <div class="project-media-wrap">
-                        <img src="Fotos/tarefas.png" alt="Projeto Lista de Tarefas" class="project-img" loading="lazy">
-                    </div>
-                    <div class="project-content-body">
-                        <h3 class="project-card-title" data-i18n="proj4Title">Lista de Tarefas (To-Do)</h3>
-                        <p class="project-card-desc" data-i18n="proj4Desc">Gerenciador de tarefas diárias com
-                            persistência local de dados, filtros de conclusão e estado reativo.</p>
-                        <div class="tech-badges-wrap">
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <div class="project-card-footer">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-project-link">
-                                <i data-lucide="github" width="16" height="16"></i> <span
-                                    data-i18n="projBtnCode">Código</span>
-                            </a>
-                            <a href="#" class="btn-project-link disabled" aria-disabled="true">
-                                <i data-lucide="external-link" width="16" height="16"></i> <span
-                                    data-i18n="projBtnLive">Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
         <!-- Sobre Mim / Interesses Section -->
         <section class="section-wrapper" id="about">
             <div class="reveal">
                 <div class="section-tag-header">
-                    <span class="section-num">03 //</span>
+                    <span class="section-num">03 /</span>
                     <span class="text-accent" data-i18n="aboutTag">INTERESSES PESSOAIS</span>
                 </div>
                 <h2 class="section-title" data-i18n="aboutTitle">Sobre mim & Paixões</h2>
@@ -396,6 +382,7 @@
             </div>
 
             <!-- Grid de Cartões de Vidro com Badges Elegantes -->
+            <p class="about-intro" data-i18n="aboutIntro">Minha curiosidade não termina no editor. Música, cinema e games também fazem parte de quem eu sou — e alimentam minha criatividade.</p>
             <div class="interests-grid reveal">
                 <!-- Músicas Favoritas -->
                 <div class="interest-card-glass">
@@ -474,7 +461,7 @@
         <section class="section-wrapper" id="contact">
             <div class="contact-banner-card reveal reveal-scale">
                 <div class="section-tag-header" style="justify-content: center;">
-                    <span class="section-num">04 //</span>
+                    <span class="section-num">04 /</span>
                     <span class="text-accent" data-i18n="contactTag">VAMOS CONVERSAR</span>
                 </div>
 
@@ -487,7 +474,7 @@
 
                 <div class="email-copy-container">
                     <span class="email-address-text">Geovanne.ado@outlook.com</span>
-                    <button class="btn-copy-email" id="copyBtn" onclick="copyEmail(event)" title="Copiar e-mail">
+                    <button class="btn-copy-email" id="copyBtn" aria-label="Copiar e-mail" title="Copiar e-mail">
                         <i data-lucide="copy" width="18" height="18"></i>
                     </button>
                 </div>
@@ -511,388 +498,14 @@
     <!-- Site Footer -->
     <footer class="site-footer">
         <div class="site-container">
-            <p>Geovanne © 2026 • <span data-i18n="footerByline">Feito com paixão e código</span></p>
+            <p>Geovanne © <span id="current-year">2026</span> • <span data-i18n="footerByline">Feito com paixão e código</span></p>
+            <a href="#hero" class="back-to-top" data-i18n="backTop">Voltar ao topo ↑</a>
         </div>
     </footer>
 
-    <!-- JavaScript & Interactive Scripts -->
-    <script>
-        // Force manual scroll position on refresh
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-        window.scrollTo(0, 0);
-
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Email Copy Functionality with Animated Toast Feedback
-        function copyEmail(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const email = 'Geovanne.ado@outlook.com';
-            navigator.clipboard.writeText(email).then(() => {
-                const copyBtn = document.getElementById('copyBtn');
-                const originalHTML = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i data-lucide="check" width="18" height="18"></i>';
-                copyBtn.style.background = '#10b981';
-                lucide.createIcons();
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalHTML;
-                    copyBtn.style.background = '';
-                    lucide.createIcons();
-                }, 2000);
-            });
-        }
-
-        // Translation Dictionary (i18n)
-        const translations = {
-            pt: {
-                navHome: 'Início',
-                navSkills: 'Habilidades',
-                navProjects: 'Projetos',
-                navAbout: 'Sobre',
-                navContact: 'Contato',
-                statusText: 'Disponível',
-                heroTag: 'Desenvolvedor & Entusiasta Tech',
-                greetingPrefix: 'Olá, eu sou',
-                greetingName: 'Geovanne',
-                bio: 'Jovem entusiasta de tecnologia e cultura gamer. Encontrei na programação o meio de unir raciocínio lógico e criatividade para construir o novo, aplicando o mindset de resolução de problemas no desenvolvimento de software.',
-                ctaProjects: 'Ver Projetos',
-                ctaContact: 'Contato',
-                statusName: 'GEOVANNE',
-                skillsTag: 'STACK TECNOLÓGICA',
-                skillsTitle: 'Habilidades & Tecnologias',
-                skillsGroupFront: 'Desenvolvimento Frontend',
-                skillsGroupTools: 'Ferramentas & Backend',
-                projectsTag: 'PORTFÓLIO DE TRABALHOS',
-                projectsTitle: 'Projetos em Destaque',
-                proj1Title: 'Filmes e Séries',
-                proj1Desc: 'Plataforma moderna para catalogar e explorar seus filmes e séries favoritos com interface interativa.',
-                proj2Title: 'E-Commerce App',
-                proj2Desc: 'Aplicação web de comércio eletrônico com carrinho de compras, visualização de produtos e estado com React.',
-                proj3Title: 'Tela de Login Glassmorphic',
-                proj3Desc: 'Interface elegante de autenticação com validações dinâmicas de campos e visual futurista de vidro.',
-                proj4Title: 'Lista de Tarefas (To-Do)',
-                proj4Desc: 'Gerenciador de tarefas diárias com persistência local de dados, filtros de conclusão e estado reativo.',
-                projBtnCode: 'Código',
-                projBtnLive: 'Live Demo',
-                aboutTag: 'INTERESSES PESSOAIS',
-                aboutTitle: 'Sobre mim & Paixões',
-                aboutMindsetText: '"Unindo o foco estratégico e o raciocínio rápido dos jogos com a criatividade da programação para construir aplicações modernas, fluidas e focadas na melhor experiência."',
-                aboutMusicLabel: 'Música favorita:',
-                aboutMusicValue: 'Anos luz (Matuê), Purpose is Glorious (Samuel Kim), Another Dimension (Pop Smoke), Back home (A$AP Rocky)',
-                aboutArtistLabel: 'Artista:',
-                aboutArtistValue: 'Matuê',
-                aboutMovieLabel: 'Filme/Série Favorita:',
-                aboutMovieValue: '911, Interestelar, The Rookie',
-                aboutGameLabel: 'Jogo favorito:',
-                aboutGameValue: 'Valorant, Minecraft, Fortnite, AoE',
-                contactTag: 'VAMOS CONVERSAR',
-                contactTitle: 'Vamos construir algo juntos?',
-                contactDesc: 'Estou sempre em busca de novos desafios e colaborações. Se você tem uma ideia de projeto ou quer apenas conversar, me chame!',
-                contactEmailBtn: 'Enviar E-mail',
-                footerByline: 'Feito com paixão e código'
-            },
-            en: {
-                navHome: 'Home',
-                navSkills: 'Skills',
-                navProjects: 'Projects',
-                navAbout: 'About',
-                navContact: 'Contact',
-                statusText: 'Available',
-                heroTag: 'Developer & Tech Enthusiast',
-                greetingPrefix: 'Hi, I am',
-                greetingName: 'Geovanne',
-                bio: 'Young tech and gaming enthusiast. I found programming as a way to combine logical thinking and creativity to build new solutions, applying a problem-solving mindset to software development.',
-                ctaProjects: 'View Projects',
-                ctaContact: 'Contact Me',
-                statusName: 'GEOVANNE',
-                skillsTag: 'TECH STACK',
-                skillsTitle: 'Skills & Technologies',
-                skillsGroupFront: 'Frontend Development',
-                skillsGroupTools: 'Tools & Backend',
-                projectsTag: 'PORTFOLIO WORK',
-                projectsTitle: 'Featured Projects',
-                proj1Title: 'Movies & Series',
-                proj1Desc: 'Modern web app to browse and catalog your favorite movies and TV shows with interactive UI.',
-                proj2Title: 'E-Commerce App',
-                proj2Desc: 'E-commerce web application featuring shopping cart, product showcase, and React state management.',
-                proj3Title: 'Glassmorphic Login Screen',
-                proj3Desc: 'Sleek authentication interface with dynamic field validations and futuristic glass visual aesthetics.',
-                proj4Title: 'To-Do List Manager',
-                proj4Desc: 'Daily task manager with local storage persistence, status filters, and reactive state management.',
-                projBtnCode: 'Code',
-                projBtnLive: 'Live Demo',
-                aboutTag: 'PERSONAL INTERESTS',
-                aboutTitle: 'About Me & Passions',
-                aboutMusicLabel: 'Favorite music:',
-                aboutMusicValue: 'Anos luz (Matuê), Purpose is Glorious (Samuel Kim), Another Dimension (Pop Smoke), Back home (A$AP Rocky)',
-                aboutArtistLabel: 'Artist:',
-                aboutArtistValue: 'Matuê',
-                aboutMovieLabel: 'Favorite movie/series:',
-                aboutMovieValue: '911, Interstellar, The Rookie',
-                aboutGameLabel: 'Favorite game:',
-                aboutGameValue: 'Valorant, Minecraft, Fortnite, AoE',
-                contactTag: 'LET\'S CONNECT',
-                contactTitle: 'Let\'s build something together?',
-                contactDesc: 'I am always open to new challenges and collaborations. If you have an idea or just want to chat, drop me a line!',
-                contactEmailBtn: 'Send Email',
-                footerByline: 'Built with passion and code'
-            }
-        };
-
-        // Theme Switcher Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-
-        function setTheme(theme) {
-            body.classList.add('theme-transitioning');
-            if (themeToggle) themeToggle.classList.add('animating');
-
-            if (theme === 'light') {
-                body.classList.add('light-theme');
-                themeIcon.setAttribute('data-lucide', 'sun');
-            } else {
-                body.classList.remove('light-theme');
-                themeIcon.setAttribute('data-lucide', 'moon');
-            }
-            lucide.createIcons();
-            localStorage.setItem('theme', theme);
-
-            setTimeout(() => {
-                body.classList.remove('theme-transitioning');
-                if (themeToggle) themeToggle.classList.remove('animating');
-            }, 550);
-        }
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        setTheme(savedTheme);
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const isLight = body.classList.contains('light-theme');
-                setTheme(isLight ? 'dark' : 'light');
-            });
-        }
-
-        // Language Switcher Logic with Animated Text Transition
-        function applyTranslations(lang, animate = false) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            
-            if (animate) {
-                elements.forEach(el => el.classList.add('i18n-animating'));
-                setTimeout(() => {
-                    elements.forEach(el => {
-                        const key = el.getAttribute('data-i18n');
-                        if (translations[lang] && translations[lang][key]) {
-                            el.textContent = translations[lang][key];
-                        }
-                    });
-                }, 150);
-                setTimeout(() => {
-                    elements.forEach(el => el.classList.remove('i18n-animating'));
-                }, 350);
-            } else {
-                elements.forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) {
-                        el.textContent = translations[lang][key];
-                    }
-                });
-            }
-
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-            document.getElementById('lang-switch-container').setAttribute('data-active', lang);
-            localStorage.setItem('lang', lang);
-        }
-
-        const savedLang = localStorage.getItem('lang') || 'pt';
-        applyTranslations(savedLang, false);
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (btn.dataset.lang !== localStorage.getItem('lang')) {
-                    applyTranslations(btn.dataset.lang, true);
-                }
-            });
-        });
-
-        // IntersectionObserver Scroll Reveal
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08 });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Smart Auto-Hide Floating Navbar on Scroll (desabilitado quando menu mobile estiver aberto)
-        let lastScrollY = window.scrollY;
-        const headerWrapper = document.querySelector('.site-header-wrapper');
-
-        window.addEventListener('scroll', () => {
-            if (document.body.classList.contains('mobile-menu-open')) return;
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                // Scrolling DOWN -> Hide navbar
-                headerWrapper.classList.add('nav-hidden');
-            } else {
-                // Scrolling UP or at top -> Show navbar
-                headerWrapper.classList.remove('nav-hidden');
-            }
-            lastScrollY = currentScrollY;
-        }, { passive: true });
-
-        // ===== MOBILE MENU LOGIC =====
-        const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
-        const mobileCloseBtn = document.getElementById('mobile-menu-close');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-
-        function openMobileMenu() {
-            mobileMenuOverlay.classList.add('open');
-            document.body.classList.add('mobile-menu-open');
-        }
-
-        function closeMobileMenu() {
-            mobileMenuOverlay.classList.remove('open');
-            document.body.classList.remove('mobile-menu-open');
-        }
-
-        if (mobileToggleBtn) {
-            mobileToggleBtn.addEventListener('click', openMobileMenu);
-        }
-
-        if (mobileCloseBtn) {
-            mobileCloseBtn.addEventListener('click', closeMobileMenu);
-        }
-
-        if (mobileMenuOverlay) {
-            mobileMenuOverlay.addEventListener('click', (e) => {
-                if (e.target === mobileMenuOverlay) {
-                    closeMobileMenu();
-                }
-            });
-        }
-
-        mobileNavItems.forEach(item => {
-            item.addEventListener('click', () => {
-                closeMobileMenu();
-            });
-        });
-
-        // ===== SECRET MENU LOGIC =====
-        const secretStyles = document.createElement('style');
-        secretStyles.textContent = `
-          #secret-trigger {
-            position: fixed; bottom: 8px; right: 8px;
-            width: 14px; height: 14px;
-            background: transparent; border: none;
-            z-index: 10000; cursor: pointer;
-          }
-          #secret-menu-overlay {
-            position: fixed; inset: 0;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(12px);
-            z-index: 10001;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            padding: 1rem;
-          }
-          #secret-menu-overlay.open { opacity: 1; visibility: visible; }
-          .secret-menu-card {
-            background: linear-gradient(160deg, #0b1329 0%, #030712 100%);
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            max-width: 360px; width: 100%;
-            transform: translateY(20px) scale(0.95);
-            transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1), opacity 0.3s ease;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
-            position: relative; overflow: hidden;
-          }
-          #secret-menu-overlay.open .secret-menu-card { transform: translateY(0) scale(1); }
-          .secret-menu-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #06b6d4, #3b82f6, #06b6d4);
-            background-size: 200% 100%;
-            animation: secret-stripe 3s linear infinite;
-          }
-          @keyframes secret-stripe { 0%{background-position:0 0}100%{background-position:200% 0} }
-          .secret-menu-header { text-align: center; margin-bottom: 1.5rem; }
-          .secret-menu-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-          .secret-menu-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: #ffffff; }
-          .secret-menu-subtitle { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
-          .secret-menu-options { display: flex; flex-direction: column; gap: 10px; }
-          .secret-option {
-            display: flex; align-items: center; gap: 14px;
-            padding: 14px 16px; border-radius: 16px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            text-decoration: none; color: #ffffff;
-            cursor: pointer; transition: all 0.25s ease;
-          }
-          .secret-option:hover {
-            background: rgba(6,182,212,0.15);
-            border-color: rgba(6,182,212,0.4);
-            transform: translateY(-2px);
-          }
-          .secret-close {
-            position: absolute; top: 14px; right: 14px;
-            width: 30px; height: 30px; border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.05); color: #ffffff;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: all 0.2s;
-          }
-        `;
-        document.head.appendChild(secretStyles);
-
-        const secretTrigger = document.createElement('button');
-        secretTrigger.id = 'secret-trigger';
-        secretTrigger.title = 'Área Secreta';
-        document.body.appendChild(secretTrigger);
-
-        const secretOverlay = document.createElement('div');
-        secretOverlay.id = 'secret-menu-overlay';
-        secretOverlay.innerHTML = `
-          <div class="secret-menu-card">
-            <button class="secret-close" id="secret-close" aria-label="Fechar">✕</button>
-            <div class="secret-menu-header">
-              <div class="secret-menu-icon">🔒</div>
-              <div class="secret-menu-title">Área Secreta</div>
-              <div class="secret-menu-subtitle">Conteúdo exclusivo</div>
-            </div>
-            <div class="secret-menu-options">
-              <a href="gym/index.html" target="_blank" class="secret-option" id="secret-gym">
-                <div style="font-size: 1.3rem;">💪</div>
-                <div>
-                  <div style="font-weight: 700; font-size: 0.95rem;">Academia</div>
-                  <div style="font-size: 0.75rem; color: #94a3b8;">Plano de treino · Além da Genética</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        `;
-        document.body.appendChild(secretOverlay);
-
-        secretTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            secretOverlay.classList.add('open');
-        });
-        document.getElementById('secret-close').addEventListener('click', () => {
-            secretOverlay.classList.remove('open');
-        });
-        secretOverlay.addEventListener('click', (e) => {
-            if (e.target === secretOverlay) secretOverlay.classList.remove('open');
-        });
-    </script>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="translations.js" defer></script>
+    <script src="app.js?v=motion-2" defer></script>
 </body>
 
 </html>
